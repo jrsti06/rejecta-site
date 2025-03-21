@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rejecta Film Festival</title>
+  
+  <!-- Preload Custom Font -->
+  <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
 
-  <!-- Custom Font -->
+  <!-- Custom Font and Styles -->
   <style>
     @font-face {
       font-family: 'Higher Jump';
@@ -14,8 +17,16 @@
       font-style: normal;
     }
 
-    h2, h3 {
-      font-family: 'Higher Jump', sans-serif;
+    body {
+      background-color: #fff;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      position: relative;
     }
 
     /* Sticky Navigation Bar */
@@ -88,41 +99,90 @@
       transition: color 0.3s ease;
     }
 
-    #sticky-nav a:hover { color: #FF5733; }
+    #sticky-nav a:hover,
+    #sticky-nav a:focus { 
+      color: #FF5733; 
+      outline: none;
+    }
+
+    /* Centered Logo */
+    .logo-container {
+      margin: 100px auto 20px;
+      text-align: center;
+    }
+
+    .logo-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    h2, h3 {
+      font-family: 'Higher Jump', sans-serif;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
   </style>
 </head>
-
 <body>
-  <!-- Sticky Navigation Bar -->
-  <nav id="sticky-nav">
-    <div id="menu-toggle" class="menu-toggle">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <div id="menu" class="menu">
-      <a href="#about">About</a>
-      <a href="#schedule">Schedule</a>
-      <a href="#films">Films</a>
-      <a href="#press">Press</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+  <header>
+    <!-- Sticky Navigation Bar -->
+    <nav id="sticky-nav">
+      <div id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div id="menu" class="menu">
+        <a href="#about">About</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#films">Films</a>
+        <a href="#press">Press</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-  <!-- Sections -->
-  <section id="about"><h2>About Rejecta</h2></section>
-  <section id="schedule"><h2>Schedule</h2></section>
-  <section id="films"><h2>Films</h2></section>
-  <section id="press"><h2>Press</h2></section>
-  <section id="contact"><h2>Contact</h2></section>
+  <main>
+    <!-- Centered Logo -->
+    <div class="logo-container">
+      <img id="logo" src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
+    </div>
+
+    <!-- Sections -->
+    <section id="about">
+      <h2>About Rejecta</h2>
+      <p>Description of the film festival or mission statement can go here.</p>
+    </section>
+    <section id="schedule">
+      <h2>Schedule</h2>
+      <p>Event schedule details go here.</p>
+    </section>
+    <section id="films">
+      <h2>Films</h2>
+      <p>Film lineup or information goes here.</p>
+    </section>
+    <section id="press">
+      <h2>Press</h2>
+      <p>Press releases or media information can be placed here.</p>
+    </section>
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Contact information goes here.</p>
+    </section>
+  </main>
 
   <!-- Social Media Links -->
-  <a href="https://www.instagram.com/rejectafilmfestival/" class="image-hover-instagram" target="_blank">
-    <img src="images/rejecta_instagram.png" alt="Instagram" />
-  </a>
-  <a href="https://www.imdb.com/" class="image-hover-imdb" target="_blank">
-    <img src="images/rejecta_imdb.png" alt="IMDb" />
-  </a>
+  <div class="social-media">
+    <a href="https://www.instagram.com/rejectafilmfestival/" class="image-hover-instagram" target="_blank">
+      <img src="images/rejecta_instagram.png" alt="Instagram" />
+    </a>
+    <a href="https://www.imdb.com/" class="image-hover-imdb" target="_blank">
+      <img src="images/rejecta_imdb.png" alt="IMDb" />
+    </a>
+  </div>
 
   <!-- Scripts -->
   <script>
@@ -131,6 +191,8 @@
       const menu = document.getElementById('menu');
 
       menuToggle.addEventListener('click', () => {
+        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+        menuToggle.setAttribute('aria-expanded', !isExpanded);
         menu.classList.toggle('active');
       });
     });
