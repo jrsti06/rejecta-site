@@ -189,11 +189,24 @@
     #mooch-logo:hover {
       transform: scale(1.05);
     }
+    /* Variety logo placed immediately under Mooch logo */
+    .variety-link {
+      text-align: center;
+      margin: 10px 0;
+    }
+    .variety-link img {
+      width: 150px;
+      height: auto;
+      display: inline-block;
+    }
+    /* Spacer between images */
+    .small-spacer {
+      height: 10px;
+    }
     #rejected-by {
       display: block;
       margin: 10px auto;
     }
-    /* New image: Mooch Rejecta Selection */
     #mooch_rejecta_selection {
       max-width: 600px;
       height: auto;
@@ -204,10 +217,10 @@
       max-width: 600px;
       height: auto;
       display: block;
-      margin: 20px auto 0;
+      margin: 10px auto 0;
     }
     
-    /* Credits under Mooch images */
+    /* Credits block */
     .credits {
       text-align: center;
       margin-top: 20px;
@@ -218,8 +231,14 @@
       margin: 10px 0;
     }
     .credits p {
-      text-align: center;
       margin: 5px 0;
+    }
+    /* For the credits text block, force left alignment for Runtime and Rejected by */
+    .credits .info {
+      text-align: left;
+      display: inline-block;
+      width: 100%;
+      margin-top: 10px;
     }
     
     /* MAP Section: Festival Guide with Spacer */
@@ -335,14 +354,6 @@
       width: 15px; /* 3x smaller than previous size */
       margin: 0 10px;
     }
-    
-    /* Variety image style: same dimensions as the submission counter button */
-    .variety-link img {
-      width: 150px;
-      height: auto;
-      display: inline-block;
-      vertical-align: middle;
-    }
   </style>
 </head>
 <body>
@@ -383,22 +394,30 @@
     <section id="films">
       <div class="logo-container">
         <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
+        <!-- Variety logo placed immediately under Mooch logo -->
+        <div class="variety-link">
+          <a href="https://variety.com/2024/film/news/jeff-ryan-scott-cohen-katerina-tennenbaum-geneva-carr-will-chase-crime-comedy-mooch-1235891590/" target="_blank">
+            <img src="images/variety.png" alt="Variety">
+          </a>
+        </div>
+        <div class="small-spacer"></div>
         <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
+        <div class="small-spacer"></div>
         <img id="mooch_rejecta_selection" src="images/mooch_rejecta_selection.png" alt="Mooch Rejecta Selection">
+        <div class="small-spacer"></div>
         <img id="mooch-still" src="images/mooch_still.jpg" alt="Mooch Still">
       </div>
       <!-- Credits block -->
       <div class="credits">
         <h3>Based on a pathetic true story</h3>
-        <p>A feature film directed by the biggest rejecta alive: Jeff Ryan</p>
-        <p>Runtime: 91 Minutes</p>
-        <p>Rejected by: Sundance, SXSW, Cannes, TIFF, Tribeca (twice), and more...</p>
-      </div>
-      <!-- Variety image link -->
-      <div class="variety-link" style="margin-top:10px;">
-        <a href="https://variety.com/2024/film/news/jeff-ryan-scott-cohen-katerina-tennenbaum-geneva-carr-will-chase-crime-comedy-mooch-1235891590/" target="_blank">
-          <img src="images/variety.png" alt="Variety">
-        </a>
+        <p>
+          A feature film directed by the biggest rejecta alive:<br>
+          Jeff Ryan
+        </p>
+        <div class="info">
+          <p>Runtime: 91 Minutes</p>
+          <p>Rejected by: Sundance, SXSW, Cannes, TIFF, Tribeca (twice), and more...</p>
+        </div>
       </div>
     </section>
     
