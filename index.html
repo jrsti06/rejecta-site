@@ -5,14 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rejecta Film Festival</title>
   
-  <!-- Preload Custom Font -->
+  <!-- Preload Higher Jump font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
   
-  <!-- Google Fonts for Montserrat and Roboto Mono -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
-
+  <!-- Using system font "Test Tiempos Text" for body (ensure it's available) -->
+  
   <!-- Inline CSS -->
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
     @font-face {
       font-family: 'Higher Jump';
       src: url('https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf') format('truetype');
@@ -24,14 +27,23 @@
       background-color: #fff;
       margin: 0;
       padding: 0;
-      font-family: 'Montserrat', sans-serif;
+      font-family: "Test Tiempos Text", sans-serif;
       font-size: 18px;
       text-align: center;
     }
-
+    
+    /* Constrain content width for readability */
+    main, section, p {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: left;
+    }
+    
     /* Banner with Rejecta Film Festival logo */
     #banner {
       margin-top: 20px;
+      text-align: center;
     }
     #banner img {
       max-width: 100%;
@@ -39,11 +51,11 @@
       display: block;
       margin: 0 auto;
     }
-
+    
     header {
       position: relative;
     }
-
+    
     /* Sticky Navigation Bar */
     #sticky-nav {
       position: fixed;
@@ -55,8 +67,8 @@
       padding: 10px 0;
       font-family: 'Higher Jump', sans-serif;
       box-shadow: 0 4px 2px -2px gray;
+      text-align: center;
     }
-
     .menu-toggle {
       display: none;
       cursor: pointer;
@@ -69,7 +81,6 @@
       top: 15px;
       left: 20px;
     }
-
     .menu-toggle span {
       background-color: white;
       display: block;
@@ -77,13 +88,11 @@
       width: 100%;
       margin-bottom: 4px;
     }
-
     #menu {
       display: flex;
       justify-content: center;
       z-index: 1000;
     }
-
     @media (max-width: 768px) {
       .menu-toggle {
         display: flex;
@@ -102,7 +111,6 @@
         display: flex;
       }
     }
-
     #sticky-nav a {
       color: #FFF;
       padding: 10px 20px;
@@ -110,70 +118,61 @@
       text-decoration: none;
       transition: color 0.3s ease;
     }
-
     #sticky-nav a:hover,
     #sticky-nav a:focus {
       color: #FF5733;
       outline: none;
     }
-
-    /* Section Styles */
+    
     main {
       padding: 20px;
-      margin-top: 100px; /* space for sticky nav */
+      margin-top: 100px; /* leave space for sticky nav */
     }
     section {
       margin: 40px 0;
       border-bottom: 1px solid #ddd;
       padding-bottom: 20px;
     }
-
-    /* FILMS Section (Mooch logos) */
-    #films .logo-container {
-      margin: 20px auto;
+    
+    /* Record Submissions Section */
+    #submissions h2, 
+    #countdown-section h2,
+    #map h2,
+    #about h2,
+    #ugc h2, 
+    #ugc h3 {
+      font-family: 'Higher Jump', sans-serif;
     }
-    #films .logo-container img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
+    #submission-counter {
+      font-family: 'Higher Jump', sans-serif;
+      font-weight: bold;
+      font-size: 3em;
+      animation: pulseColor 2s infinite;
+      text-align: center;
     }
-
-    /* Submission Counter with Pulse Animation */
     @keyframes pulseColor {
       0% { color: black; transform: scale(1); }
       50% { color: #f73eff; transform: scale(1.1); }
       100% { color: black; transform: scale(1); }
     }
-    #submission-counter {
-      font-family: 'Roboto Mono', monospace;
-      font-weight: bold;
-      font-size: 3em;
-      animation: pulseColor 2s infinite;
+    
+    /* FILMS Section: Mooch Logo */
+    #films .logo-container {
+      text-align: center;
+      margin: 20px auto;
     }
-
-    /* Timeline Styling */
-    #timeline ul {
-      list-style-type: none;
-      padding: 0;
+    #mooch-logo {
+      max-width: 150px;
+      height: auto;
+      transition: transform 0.3s;
     }
-    #timeline ul li {
-      cursor: pointer;
-      padding: 5px;
-      transition: background 0.3s;
+    #mooch-logo:hover {
+      transform: scale(1.1);
     }
-    #timeline ul li:hover {
-      background-color: #f0f0f0;
-    }
-    #timeline-info {
-      margin-top: 10px;
-      font-style: italic;
-      color: #555;
-    }
-
-    /* Festival Map (MAP Section) */
-    #map {
-      margin-top: 20px;
+    
+    /* MAP Section: Festival Guide */
+    #map h2 {
+      text-align: center;
     }
     #map img {
       max-width: 100%;
@@ -184,21 +183,22 @@
     #map p {
       font-style: italic;
       color: #555;
+      text-align: center;
     }
-
-    /* Social Media Links */
-    .social-media {
-      margin: 20px 0;
+    
+    /* ABOUT Section */
+    #about h2 {
+      text-align: center;
     }
-    .social-media img {
-      width: 40px;
-      margin: 0 10px;
+    #about p {
+      margin-bottom: 20px;
     }
-
-    /* Form Styling */
-    form {
-      max-width: 500px;
-      margin: 0 auto;
+    
+    /* SUBMIT Section */
+    #ugc {
+      text-align: center;
+    }
+    #ugc form {
       text-align: left;
     }
     label {
@@ -209,11 +209,26 @@
       width: 100%;
       padding: 8px;
       box-sizing: border-box;
+      margin-bottom: 10px;
     }
     button {
       padding: 10px 20px;
-      margin-top: 10px;
       cursor: pointer;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: #f0f0f0;
+      padding: 20px;
+      text-align: center;
+      font-size: 16px;
+    }
+    .footer-social {
+      margin-bottom: 10px;
+    }
+    .footer-social img {
+      width: 40px;
+      margin: 0 10px;
     }
   </style>
 </head>
@@ -222,7 +237,7 @@
   <div id="banner">
     <img src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
   </div>
-
+  
   <header>
     <!-- Sticky Navigation Bar -->
     <nav id="sticky-nav">
@@ -240,59 +255,48 @@
       </div>
     </nav>
   </header>
-
+  
   <main>
-    <!-- FILMS Section: Mooch Logos -->
-    <section id="films">
-      <h2>FILMS</h2>
-      <div class="logo-container">
-        <!-- Mooch logo that swaps on hover -->
-        <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
-        <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
-      </div>
-    </section>
-
-    <!-- Animated Submission Counter -->
+    <!-- Record Submissions Section (now appears right after the banner) -->
     <section id="submissions">
       <h2>Record Submissions</h2>
       <div id="submission-counter">1</div>
       <p>We've received a record number of submissions!</p>
     </section>
-
-    <!-- MOOCH Premiere Countdown -->
+    
+    <!-- FILMS Section: Mooch Logo and Rejected By -->
+    <section id="films">
+      <div class="logo-container">
+        <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
+        <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
+      </div>
+    </section>
+    
+    <!-- MOOCH Premiere Countdown Section -->
     <section id="countdown-section">
       <h2>MOOCH Premiere Countdown</h2>
       <div id="countdown">Loading countdown...</div>
     </section>
-
-    <!-- Interactive Festival Timeline and MAP -->
-    <section id="timeline">
-      <h2>Festival Timeline</h2>
-      <ul>
-        <li data-info="Our first rejection hit the market in 2000!">2000: The First Rejection</li>
-        <li data-info="2005 saw a rejection revolution!">2005: Rejection Revolution</li>
-        <li data-info="2025: The record-breaking MOOCH Era begins!">2025: The MOOCH Era</li>
-      </ul>
-      <div id="timeline-info"></div>
-      <!-- MAP: Festival Guide -->
-      <div id="map">
-        <img src="images/fesstival_guide.png" alt="Festival Guide">
-        <p>Just a short walk across the street from that other festival that loves to reject people.</p>
-      </div>
+    
+    <!-- MAP Section: Festival Guide -->
+    <section id="map">
+      <h2>FESTIVAL GUIDE</h2>
+      <img src="images/fesstival_guide.png" alt="Festival Guide">
+      <p>Just a short walk across the street from that other festival that loves to reject people.</p>
     </section>
-
+    
     <!-- ABOUT Section -->
     <section id="about">
       <h2>ABOUT</h2>
-      <img src="images/jefff_senior_quote.GIF" alt="Jeff Senior Quote">
       <p>
-        Jeff Ryan is a filmmaker hailing from the greatest state in America: New Jersey. Despite his lofty dreams of becoming a successful filmmaker, he, like so many others on this circus ride, found himself facing the sweet smell of rejection on a daily basis. Earlier this year, Jeff found himself falling to his knees and crying into an unwashed pillow, after receiving his ninth rejection from SXSW. It was then that Jeff decided to create a festival of his own. After a record number of submissions in its inaugural year, Jeff feels confident that mortaging his home and personal assets to make this dream a reality was a smart decision. Time will tell, but Jeff believes he can double his submission count by 2026 if the stars continue to align.
+        Jeff Ryan is a filmmaker hailing from the greatest state in America: New Jersey. Despite his lofty dreams of becoming a successful filmmaker, he, like so many others on this circus ride, found himself facing the sweet smell of rejection on a daily basis. Earlier this year, Jeff found himself falling to his knees and crying into an unwashed pillow, after receiving his ninth rejection from SXSW. It was then that Jeff decided to create a festival of his own. After a record number of submissions in its inaugural year, Jeff feels confident that mortgaging his home and personal assets to make this dream a reality was a smart decision. Time will tell, but Jeff believes he can double his submission count by 2026 if the stars continue to align.
       </p>
+      <img src="images/jefff_senior_quote.GIF" alt="Jeff Senior Quote">
       <p>
         and in my case, you also miss 100 percent of the shots <b><u>YOU DO TAKE</u></b> sometimes too...
       </p>
     </section>
-
+    
     <!-- SUBMIT Section: User-Generated Content Form -->
     <section id="ugc">
       <h2>SUBMIT</h2>
@@ -311,61 +315,21 @@
         We only accept films that have been brutally rejected by the festivals that champion "STUDIO INDIE FILMS." Please share a screenshot or fun story of a time your film has been rejected, and once we receive that, we will consider and accept your film into the Rejecta Film Festival. Failure to meet our submission guidelines means you are likely already successful, and therefore, our jealous members cannot deal with being compared to you and your fancy-ass success, so we will NOT REVIEW your film. In fact, we'll invoice you for the extra box of tear-filled-tissues Jeff will have to buy after watching you find joy in your life! Okay?? SO just follow the G** D*** RULES!
       </p>
     </section>
-
-    <!-- Interactive Quiz -->
-    <section id="quiz">
-      <h2>Which Rejected Filmmaker Are You?</h2>
-      <p>Answer a few fun questions to find out!</p>
-      <button id="start-quiz">Start Quiz</button>
-      <div id="quiz-section" style="display:none;">
-         <!-- Placeholder for quiz content -->
-         <p>Imagine some fun questions here...</p>
-         <button id="finish-quiz">Finish Quiz</button>
-      </div>
-      <div id="quiz-result"></div>
-    </section>
-
-    <!-- Dynamic Trailer / Teaser Section -->
-    <section id="trailer">
-      <h2>MOOCH Trailer</h2>
-      <video id="mooch-trailer" controls width="600">
-        <source src="videos/mooch_trailer.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-      <div id="director-commentary" style="display:none;">
-         <p>Director's commentary: "This film was rejected—but we made it work!"</p>
-      </div>
-    </section>
-
-    <!-- Easter Eggs / Hidden Content -->
-    <section id="easter-eggs">
-      <h2>Discover Easter Eggs!</h2>
-      <button id="reveal-easter-egg">Reveal Surprise</button>
-      <div id="easter-egg-content" style="display:none;">
-         <p>You found a secret rejection note: "Better luck next time!"</p>
-      </div>
-    </section>
-
-    <!-- Fake Awards Section -->
-    <section id="fake-awards">
-      <h2>Fake Awards</h2>
-      <p>Vote for your favorite category:</p>
-      <button class="award-btn" data-category="Best Rejection">Vote Best Rejection</button>
-      <button class="award-btn" data-category="Most Dramatic Rejection">Vote Most Dramatic Rejection</button>
-      <div id="award-results"></div>
-    </section>
   </main>
-
-  <!-- Social Media Links -->
-  <div class="social-media">
-    <a href="https://www.instagram.com/rejectafilmfestival/" target="_blank">
-      <img src="images/rejecta_instagram.png" alt="Instagram" />
-    </a>
-    <a href="https://www.imdb.com/" target="_blank">
-      <img src="images/rejecta_imdb.png" alt="IMDb" />
-    </a>
-  </div>
-
+  
+  <!-- Footer with Social Media Icons and Copyright -->
+  <footer>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/rejectafilmfest/" target="_blank">
+        <img src="images/insta_logo_black.png" alt="Instagram">
+      </a>
+      <a href="https://x.com/rejectafilmfest" target="_blank">
+        <img src="images/x_logo_black.png" alt="X/Twitter">
+      </a>
+    </div>
+    <div>© Copyright 2025</div>
+  </footer>
+  
   <!-- Inline JavaScript for Interactivity -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -377,7 +341,7 @@
           menuToggle.setAttribute('aria-expanded', !isExpanded);
           menu.classList.toggle('active');
       });
-
+      
       // Mooch Logo Hover Effect: switch image on hover
       const moochLogo = document.getElementById('mooch-logo');
       if(moochLogo) {
@@ -388,9 +352,7 @@
           moochLogo.src = "images/mooch_logo_black.png";
         });
       }
-
-      // Animated Submission Counter remains static as "1"
-
+      
       // MOOCH Premiere Countdown Timer
       const countdownElem = document.getElementById('countdown');
       const premiereDate = new Date("June 7, 2025 00:00:00").getTime();
@@ -408,54 +370,6 @@
           const seconds = Math.floor((distance % (1000 * 60)) / 1000);
           countdownElem.textContent = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
       }, 1000);
-
-      // Interactive Festival Timeline
-      const timelineItems = document.querySelectorAll('#timeline ul li');
-      const timelineInfo = document.getElementById('timeline-info');
-      timelineItems.forEach(item => {
-          item.addEventListener('click', () => {
-              timelineInfo.textContent = item.getAttribute('data-info');
-          });
-      });
-
-      // Interactive Quiz
-      const startQuizBtn = document.getElementById('start-quiz');
-      const quizSection = document.getElementById('quiz-section');
-      const finishQuizBtn = document.getElementById('finish-quiz');
-      const quizResult = document.getElementById('quiz-result');
-      startQuizBtn.addEventListener('click', () => {
-          quizSection.style.display = 'block';
-      });
-      finishQuizBtn.addEventListener('click', () => {
-          quizSection.style.display = 'none';
-          quizResult.textContent = "You are the quintessential rejected filmmaker!";
-      });
-
-      // Dynamic Trailer: Show Director's Commentary after video ends
-      const trailerVideo = document.getElementById('mooch-trailer');
-      const directorCommentary = document.getElementById('director-commentary');
-      trailerVideo.addEventListener('ended', () => {
-          directorCommentary.style.display = 'block';
-      });
-
-      // Easter Eggs
-      const revealEggBtn = document.getElementById('reveal-easter-egg');
-      const easterEggContent = document.getElementById('easter-egg-content');
-      revealEggBtn.addEventListener('click', () => {
-          easterEggContent.style.display = 'block';
-      });
-
-      // Fake Awards Voting
-      const awardButtons = document.querySelectorAll('.award-btn');
-      const awardResults = document.getElementById('award-results');
-      let votes = {};
-      awardButtons.forEach(button => {
-          button.addEventListener('click', () => {
-              const category = button.getAttribute('data-category');
-              votes[category] = (votes[category] || 0) + 1;
-              awardResults.textContent = JSON.stringify(votes, null, 2);
-          });
-      });
     });
   </script>
 </body>
