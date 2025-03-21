@@ -354,12 +354,43 @@
       width: 15px; /* 3x smaller than previous size */
       margin: 0 10px;
     }
+    
+    /* Mobile responsiveness */
+    @media (max-width: 768px) {
+      /* Adjust banner logo size */
+      #banner img {
+        width: 70%;
+      }
+      /* Navigation links */
+      #sticky-nav a {
+        padding: 8px 15px;
+        font-size: 14px;
+      }
+      /* Reduce font size in countdown items */
+      .countdown-item {
+        font-size: 1.2em;
+        padding: 8px 10px;
+      }
+      .countdown-item .label {
+        font-size: 0.4em;
+      }
+      /* Make form container iframe responsive */
+      .form-container iframe {
+        width: 100%;
+        height: auto;
+      }
+      /* Ensure images scale */
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
   </style>
 </head>
 <body>
   <div class="top-spacer"></div>
   
-  <!-- Banner with Rejecta Festival Logo -->
+  <!-- Banner with Rejecta Film Festival Logo -->
   <div id="banner">
     <img src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
   </div>
