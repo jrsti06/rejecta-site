@@ -8,6 +8,9 @@
   <!-- Preload Higher Jump font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
   
+  <!-- Google Fonts: Bebas Neue for header3 (as PF Fuel/Monsteratt alternative) -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  
   <!-- Use "Test Tiempos Text" for body text (ensure it’s available on your system or host it) -->
   
   <!-- Inline CSS -->
@@ -204,6 +207,21 @@
       margin: 20px auto 0;
     }
     
+    /* Credits under Mooch images */
+    .credits {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .credits h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2em;
+      margin: 10px 0;
+    }
+    .credits p {
+      text-align: center;
+      margin: 5px 0;
+    }
+    
     /* MAP Section: Festival Guide with Spacer */
     #map h2 {
       text-align: center;
@@ -237,7 +255,7 @@
     .countdown-item {
       display: inline-block;
       background: #eee;
-      border: 2px solid #f73eff;
+      border: 4px solid #f73eff; /* 2x thicker */
       border-radius: 8px;
       padding: 10px 15px;
       margin: 5px;
@@ -265,47 +283,42 @@
     }
     .subheading {
       text-align: center;
-      font-size: 1.5em;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8em;
       color: #f73eff;
       margin: 10px 0;
     }
     
-    /* SUBMIT Section: Custom Form */
+    /* SUBMIT Section: Google Form Embed */
     #ugc {
       text-align: center;
     }
     #ugc h2, #ugc h3 {
       font-family: 'Higher Jump', sans-serif;
     }
-    #ugc form {
-      text-align: left;
-      margin: 20px auto;
-      max-width: 600px;
-    }
-    #ugc label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-    #ugc input, #ugc textarea, #ugc select {
+    .form-container {
+      display: inline-block;
+      max-width: 640px;
       width: 100%;
-      padding: 8px;
-      box-sizing: border-box;
-      margin-bottom: 10px;
     }
-    #ugc button {
-      padding: 10px 20px;
-      cursor: pointer;
+    .form-container iframe {
+      width: 640px;
+      height: 1101px;
+      border: 0;
     }
-    /* The G** D*** RULES header */
+    /* The G** D*** RULES block */
     #ugc .rules-header {
       font-family: 'Higher Jump', sans-serif;
       text-align: center;
       margin-top: 20px;
+      font-size: 1.5em;
     }
     #ugc .rules {
       font-style: italic;
       margin-top: 10px;
       text-align: center;
+      font-size: 0.8em; /* Fine print */
+      color: #555;
     }
     
     /* Footer */
@@ -322,10 +335,19 @@
       width: 15px; /* 3x smaller than previous size */
       margin: 0 10px;
     }
+    
+    /* Variety image style: same dimensions as the submission counter button */
+    .variety-link img {
+      width: 150px;
+      height: auto;
+      display: inline-block;
+      vertical-align: middle;
+    }
   </style>
 </head>
 <body>
   <div class="top-spacer"></div>
+  
   <!-- Banner with Rejecta Festival Logo -->
   <div id="banner">
     <img src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
@@ -357,13 +379,26 @@
       <div id="submission-counter">CLICK TO REVEAL</div>
     </section>
     
-    <!-- FILMS Section: Mooch Logo, Rejected By, Mooch Rejecta Selection, Mooch Still -->
+    <!-- FILMS Section: Mooch Logo and Related Images -->
     <section id="films">
       <div class="logo-container">
         <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
         <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
         <img id="mooch_rejecta_selection" src="images/mooch_rejecta_selection.png" alt="Mooch Rejecta Selection">
         <img id="mooch-still" src="images/mooch_still.jpg" alt="Mooch Still">
+      </div>
+      <!-- Credits block -->
+      <div class="credits">
+        <h3>Based on a pathetic true story</h3>
+        <p>A feature film directed by the biggest rejecta alive: Jeff Ryan</p>
+        <p>Runtime: 91 Minutes</p>
+        <p>Rejected by: Sundance, SXSW, Cannes, TIFF, Tribeca (twice), and more...</p>
+      </div>
+      <!-- Variety image link -->
+      <div class="variety-link" style="margin-top:10px;">
+        <a href="https://variety.com/2024/film/news/jeff-ryan-scott-cohen-katerina-tennenbaum-geneva-carr-will-chase-crime-comedy-mooch-1235891590/" target="_blank">
+          <img src="images/variety.png" alt="Variety">
+        </a>
       </div>
     </section>
     
@@ -398,31 +433,20 @@
       <h3 class="subheading">and in my case, you also miss 100 percent of the shots <b><u>YOU DO TAKE</u></b> sometimes too...</h3>
     </section>
     
-    <!-- SUBMIT Section: Custom Form -->
+    <!-- SUBMIT Section: Google Form Embed -->
     <section id="ugc">
       <h2>SUBMIT</h2>
       <h3>Submit Your Rejected Film</h3>
-      <form name="rejected-film" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="rejected-film">
-        
-        <label for="film-title">Film Title:</label>
-        <input type="text" id="film-title" name="film-title" required>
-        
-        <label for="description">Where have you been rejected:</label>
-        <textarea id="description" name="description" required></textarea>
-        
-        <label for="did-you-cry">Did you cry?</label>
-        <select id="did-you-cry" name="did-you-cry" required>
-          <option value="">-- Select --</option>
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-        
-        <label for="confirm-rules">Confirm you have read the G** D*** rules:</label>
-        <input type="checkbox" id="confirm-rules" name="confirm-rules" required>
-        
-        <button type="submit">Submit</button>
-      </form>
+      <div class="form-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSewHNUmnCXQJpYphp2t872Qd40g7cy-LkSgPenAX8eOVW4mMQ/viewform?embedded=true" 
+                width="640" 
+                height="1101" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">
+          Loading…
+        </iframe>
+      </div>
       <h3 class="rules-header">The G** D*** RULES</h3>
       <p class="rules">
         We only accept films that have been brutally rejected by the festivals that champion "STUDIO INDIE FILMS." Please share a screenshot or fun story of a time your film has been rejected, and once we receive that, we will consider and accept your film into the Rejecta Film Festival. Failure to meet our submission guidelines means you are likely already successful, and therefore, our jealous members cannot deal with being compared to you and your fancy-ass success, so we will NOT REVIEW your film. In fact, we'll invoice you for the extra box of tear-filled-tissues Jeff will have to buy after watching you find joy in your life! Okay?? SO just follow the G** D*** RULES!
@@ -475,7 +499,7 @@
         }
       });
       
-      // MOOCH Premiere Countdown Timer (fun, box-styled format)
+      // MOOCH Premiere Countdown Timer
       function updateCountdown() {
         const now = new Date().getTime();
         const distance = premiereDate - now;
