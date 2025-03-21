@@ -92,7 +92,7 @@
       background-color: white;
       display: block;
       height: 4px;
-      width: 100%;
+      width: 30px;
       margin-bottom: 4px;
     }
     #menu {
@@ -103,6 +103,12 @@
     @media (max-width: 768px) {
       .menu-toggle {
         display: flex;
+      }
+      /* Increase the hamburger icon size on mobile */
+      .menu-toggle span {
+         height: 6px;
+         width: 35px;
+         margin-bottom: 6px;
       }
       #menu {
         display: none;
@@ -203,9 +209,12 @@
     .small-spacer {
       height: 10px;
     }
+    /* Constrain rejected_by.gif */
     #rejected-by {
       display: block;
       margin: 10px auto;
+      max-width: 100%;
+      height: auto;
     }
     #mooch_rejecta_selection {
       max-width: 600px;
@@ -379,10 +388,12 @@
         width: 100%;
         height: auto;
       }
-      /* Ensure images scale */
+      /* Ensure images scale on mobile */
       #mooch-logo,
       #mooch_rejecta_selection,
-      #mooch-still {
+      #mooch-still,
+      .variety-link img,
+      #rejected-by {
         max-width: 90%;
         height: auto;
       }
