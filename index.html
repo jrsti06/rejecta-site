@@ -32,6 +32,11 @@
       text-align: center;
     }
     
+    /* Top spacer */
+    .top-spacer {
+      height: 50px;
+    }
+    
     /* Constrain content width for readability */
     main, section, p {
       max-width: 800px;
@@ -42,7 +47,6 @@
     
     /* Banner with scaled Rejecta Festival Logo */
     #banner {
-      margin-top: 20px;
       text-align: center;
     }
     #banner img {
@@ -144,11 +148,12 @@
     #submissions p {
       font-style: italic;
       margin: 10px 0;
+      text-align: center;
     }
     #submission-counter {
       font-family: 'Higher Jump', sans-serif;
       font-weight: bold;
-      font-size: 3em;
+      font-size: 1.5em; /* 50% smaller initially */
       cursor: pointer;
       margin-bottom: 10px;
       transition: transform 0.3s;
@@ -156,8 +161,17 @@
     #submission-counter:hover {
       transform: scale(1.1);
     }
+    #submission-counter.revealed {
+      font-size: 3em;
+      animation: pulseColor 2s infinite;
+    }
+    @keyframes pulseColor {
+      0% { color: #f73eff; transform: scale(1); }
+      50% { color: #f73eff; transform: scale(1.1); }
+      100% { color: #f73eff; transform: scale(1); }
+    }
     
-    /* FILMS Section: Mooch Logo and Mooch Still */
+    /* FILMS Section: Mooch Logo and related images */
     #films .logo-container {
       text-align: center;
       margin: 20px auto;
@@ -171,6 +185,17 @@
     }
     #mooch-logo:hover {
       transform: scale(1.05);
+    }
+    #rejected-by {
+      display: block;
+      margin: 10px auto;
+    }
+    /* New image: Mooch Rejecta Selection */
+    #mooch_rejecta_selection {
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 10px auto;
     }
     #mooch-still {
       max-width: 600px;
@@ -199,6 +224,33 @@
       text-align: center;
     }
     
+    /* COUNTDOWN Section: Rejecta Film Festival Countdown */
+    #countdown-section h2 {
+      text-align: center;
+      font-family: 'Higher Jump', sans-serif;
+    }
+    /* Countdown container styling */
+    #countdown {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .countdown-item {
+      display: inline-block;
+      background: #eee;
+      border: 2px solid #f73eff;
+      border-radius: 8px;
+      padding: 10px 15px;
+      margin: 5px;
+      font-family: 'Higher Jump', sans-serif;
+      font-size: 1.5em;
+      color: #000;
+    }
+    .countdown-item .label {
+      display: block;
+      font-size: 0.5em;
+      color: #555;
+    }
+    
     /* ABOUT Section */
     #about h2 {
       text-align: center;
@@ -211,26 +263,50 @@
       display: block;
       margin: 0 auto;
     }
+    .subheading {
+      text-align: center;
+      font-size: 1.5em;
+      color: #f73eff;
+      margin: 10px 0;
+    }
     
-    /* SUBMIT Section: Google Form Embed */
+    /* SUBMIT Section: Custom Form */
     #ugc {
       text-align: center;
     }
     #ugc h2, #ugc h3 {
       font-family: 'Higher Jump', sans-serif;
     }
-    .form-container {
-      display: inline-block;
-      max-width: 640px;
+    #ugc form {
+      text-align: left;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    #ugc label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    #ugc input, #ugc textarea, #ugc select {
       width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      margin-bottom: 10px;
     }
-    .form-container iframe {
-      width: 640px;
-      height: 1101px;
-      border: 0;
+    #ugc button {
+      padding: 10px 20px;
+      cursor: pointer;
     }
-    /* Note: If "Untitled Form" appears above the form,
-       remove it by editing your Google Form’s title. */
+    /* The G** D*** RULES header */
+    #ugc .rules-header {
+      font-family: 'Higher Jump', sans-serif;
+      text-align: center;
+      margin-top: 20px;
+    }
+    #ugc .rules {
+      font-style: italic;
+      margin-top: 10px;
+      text-align: center;
+    }
     
     /* Footer */
     footer {
@@ -249,6 +325,7 @@
   </style>
 </head>
 <body>
+  <div class="top-spacer"></div>
   <!-- Banner with Rejecta Festival Logo -->
   <div id="banner">
     <img src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
@@ -275,24 +352,30 @@
   <main>
     <!-- Record Submissions Section (centered) -->
     <section id="submissions">
-      <h2>Record Submissions</h2>
+      <h2>RECORD HIGH SUBMISSIONS</h2>
       <p>We've received a record number of submissions!</p>
       <div id="submission-counter">CLICK TO REVEAL</div>
     </section>
     
-    <!-- FILMS Section: Mooch Logo and Mooch Still -->
+    <!-- FILMS Section: Mooch Logo, Rejected By, Mooch Rejecta Selection, Mooch Still -->
     <section id="films">
       <div class="logo-container">
         <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
         <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
+        <img id="mooch_rejecta_selection" src="images/mooch_rejecta_selection.png" alt="Mooch Rejecta Selection">
         <img id="mooch-still" src="images/mooch_still.jpg" alt="Mooch Still">
       </div>
     </section>
     
-    <!-- MOOCH Premiere Countdown Section -->
+    <!-- COUNTDOWN Section: Rejecta Film Festival Countdown -->
     <section id="countdown-section">
-      <h2>MOOCH Premiere Countdown</h2>
-      <div id="countdown">Loading countdown...</div>
+      <h2>Rejecta Film Festival Countdown</h2>
+      <div id="countdown">
+        <div class="countdown-item"><span id="days">00</span><span class="label">Days</span></div>
+        <div class="countdown-item"><span id="hours">00</span><span class="label">Hours</span></div>
+        <div class="countdown-item"><span id="minutes">00</span><span class="label">Minutes</span></div>
+        <div class="countdown-item"><span id="seconds">00</span><span class="label">Seconds</span></div>
+      </div>
     </section>
     
     <!-- MAP Section: Festival Guide -->
@@ -306,31 +389,42 @@
     <!-- ABOUT Section -->
     <section id="about">
       <h2>ABOUT</h2>
-      <p>You miss 100% of the shots you don't take...</p>
+      <h3 class="subheading">You miss 100% of the shots you don't take...</h3>
       <p>
         Jeff Ryan is a filmmaker hailing from the greatest state in America: New Jersey. Despite his lofty dreams of becoming a successful filmmaker, he, like so many others on this circus ride, found himself facing the sweet smell of rejection on a daily basis. Earlier this year, Jeff found himself falling to his knees and crying into an unwashed pillow, after receiving his ninth rejection from SXSW. It was then that Jeff decided to create a festival of his own. After a record number of submissions in its inaugural year, Jeff feels confident that mortgaging his home and personal assets to make this dream a reality was a smart decision. Time will tell, but Jeff believes he can double his submission count by 2026 if the stars continue to align.
       </p>
       <img src="images/jefff_senior_quote.GIF" alt="Jeff Senior Quote">
-      <p>
-        and in my case, you also miss 100 percent of the shots <b><u>YOU DO TAKE</u></b> sometimes too...
-      </p>
+      <div class="spacer"></div>
+      <h3 class="subheading">and in my case, you also miss 100 percent of the shots <b><u>YOU DO TAKE</u></b> sometimes too...</h3>
     </section>
     
-    <!-- SUBMIT Section: Google Form Embed -->
+    <!-- SUBMIT Section: Custom Form -->
     <section id="ugc">
       <h2>SUBMIT</h2>
       <h3>Submit Your Rejected Film</h3>
-      <div class="form-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSewHNUmnCXQJpYphp2t872Qd40g7cy-LkSgPenAX8eOVW4mMQ/viewform?embedded=true" 
-                width="640" 
-                height="1101" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0">
-          Loading…
-        </iframe>
-      </div>
-      <p>
+      <form name="rejected-film" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="rejected-film">
+        
+        <label for="film-title">Film Title:</label>
+        <input type="text" id="film-title" name="film-title" required>
+        
+        <label for="description">Where have you been rejected:</label>
+        <textarea id="description" name="description" required></textarea>
+        
+        <label for="did-you-cry">Did you cry?</label>
+        <select id="did-you-cry" name="did-you-cry" required>
+          <option value="">-- Select --</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        
+        <label for="confirm-rules">Confirm you have read the G** D*** rules:</label>
+        <input type="checkbox" id="confirm-rules" name="confirm-rules" required>
+        
+        <button type="submit">Submit</button>
+      </form>
+      <h3 class="rules-header">The G** D*** RULES</h3>
+      <p class="rules">
         We only accept films that have been brutally rejected by the festivals that champion "STUDIO INDIE FILMS." Please share a screenshot or fun story of a time your film has been rejected, and once we receive that, we will consider and accept your film into the Rejecta Film Festival. Failure to meet our submission guidelines means you are likely already successful, and therefore, our jealous members cannot deal with being compared to you and your fancy-ass success, so we will NOT REVIEW your film. In fact, we'll invoice you for the extra box of tear-filled-tissues Jeff will have to buy after watching you find joy in your life! Okay?? SO just follow the G** D*** RULES!
       </p>
     </section>
@@ -377,26 +471,35 @@
       submissionCounter.addEventListener('click', function() {
         if (submissionCounter.textContent.trim() === "CLICK TO REVEAL") {
           submissionCounter.textContent = "ONE";
+          submissionCounter.classList.add("revealed");
         }
       });
       
-      // MOOCH Premiere Countdown Timer
-      const countdownElem = document.getElementById('countdown');
+      // MOOCH Premiere Countdown Timer (fun, box-styled format)
+      function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = premiereDate - now;
+        if(distance < 0) {
+          clearInterval(countdownInterval);
+          document.getElementById('days').textContent = "00";
+          document.getElementById('hours').textContent = "00";
+          document.getElementById('minutes').textContent = "00";
+          document.getElementById('seconds').textContent = "00";
+          return;
+        }
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById('days').textContent = days;
+        document.getElementById('hours').textContent = hours;
+        document.getElementById('minutes').textContent = minutes;
+        document.getElementById('seconds').textContent = seconds;
+      }
+      
       const premiereDate = new Date("June 7, 2025 00:00:00").getTime();
-      const countdownInterval = setInterval(() => {
-          const now = new Date().getTime();
-          const distance = premiereDate - now;
-          if(distance < 0) {
-              clearInterval(countdownInterval);
-              countdownElem.textContent = "Premiere has started!";
-              return;
-          }
-          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-          countdownElem.textContent = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-      }, 1000);
+      updateCountdown();
+      const countdownInterval = setInterval(updateCountdown, 1000);
     });
   </script>
 </body>
