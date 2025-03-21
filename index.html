@@ -8,8 +8,8 @@
   <!-- Preload Custom Font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
   
-  <!-- Google Fonts for Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Google Fonts for Montserrat and Roboto Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
 
   <!-- Inline CSS -->
   <style>
@@ -27,6 +27,17 @@
       font-family: 'Montserrat', sans-serif;
       font-size: 18px;
       text-align: center;
+    }
+
+    /* Banner with Rejecta Film Festival logo */
+    #banner {
+      margin-top: 20px;
+    }
+    #banner img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     header {
@@ -106,31 +117,26 @@
       outline: none;
     }
 
-    /* Logo Container */
-    .logo-container {
-      margin: 100px auto 20px;
-      text-align: center;
-    }
-    .logo-container img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-
-    h2, h3 {
-      font-family: 'Higher Jump', sans-serif;
-    }
-
+    /* Section Styles */
     main {
       padding: 20px;
-      margin-top: 70px; /* space for sticky nav */
+      margin-top: 100px; /* space for sticky nav */
     }
-
     section {
       margin: 40px 0;
       border-bottom: 1px solid #ddd;
       padding-bottom: 20px;
+    }
+
+    /* FILMS Section (Mooch logos) */
+    #films .logo-container {
+      margin: 20px auto;
+    }
+    #films .logo-container img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     /* Submission Counter with Pulse Animation */
@@ -140,6 +146,8 @@
       100% { color: black; transform: scale(1); }
     }
     #submission-counter {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: bold;
       font-size: 3em;
       animation: pulseColor 2s infinite;
     }
@@ -163,17 +171,17 @@
       color: #555;
     }
 
-    /* Festival Map */
-    #festival-map {
+    /* Festival Map (MAP Section) */
+    #map {
       margin-top: 20px;
     }
-    #festival-map img {
+    #map img {
       max-width: 100%;
       height: auto;
       display: block;
       margin: 0 auto;
     }
-    #festival-map p {
+    #map p {
       font-style: italic;
       color: #555;
     }
@@ -210,6 +218,11 @@
   </style>
 </head>
 <body>
+  <!-- Banner with Rejecta Film Festival logo -->
+  <div id="banner">
+    <img src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
+  </div>
+
   <header>
     <!-- Sticky Navigation Bar -->
     <nav id="sticky-nav">
@@ -219,21 +232,25 @@
         <span></span>
       </div>
       <div id="menu" class="menu">
-        <a href="#about">About</a>
-        <a href="#schedule">Schedule</a>
-        <a href="#films">Films</a>
-        <a href="#press">Press</a>
-        <a href="#contact">Contact</a>
+        <a href="#banner">Home</a>
+        <a href="#films">FILMS</a>
+        <a href="#map">MAP</a>
+        <a href="#about">ABOUT</a>
+        <a href="#ugc">SUBMIT</a>
       </div>
     </nav>
   </header>
 
   <main>
-    <!-- Logo Container with Mooch Logo and Rejected By GIF -->
-    <div class="logo-container">
-      <img id="logo" src="images/mooch_logo_pink.png" alt="Mooch Logo">
-      <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
-    </div>
+    <!-- FILMS Section: Mooch Logos -->
+    <section id="films">
+      <h2>FILMS</h2>
+      <div class="logo-container">
+        <!-- Mooch logo that swaps on hover -->
+        <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
+        <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
+      </div>
+    </section>
 
     <!-- Animated Submission Counter -->
     <section id="submissions">
@@ -248,7 +265,7 @@
       <div id="countdown">Loading countdown...</div>
     </section>
 
-    <!-- Interactive Festival Timeline -->
+    <!-- Interactive Festival Timeline and MAP -->
     <section id="timeline">
       <h2>Festival Timeline</h2>
       <ul>
@@ -257,23 +274,29 @@
         <li data-info="2025: The record-breaking MOOCH Era begins!">2025: The MOOCH Era</li>
       </ul>
       <div id="timeline-info"></div>
-      <!-- Festival Map with Guide Image and Comedic Comment -->
-      <div id="festival-map">
+      <!-- MAP: Festival Guide -->
+      <div id="map">
         <img src="images/fesstival_guide.png" alt="Festival Guide">
         <p>Just a short walk across the street from that other festival that loves to reject people.</p>
       </div>
     </section>
 
-    <!-- About Us Section with GIF and Snarky Quote -->
+    <!-- ABOUT Section -->
     <section id="about">
-      <h2>About Rejecta</h2>
+      <h2>ABOUT</h2>
       <img src="images/jefff_senior_quote.GIF" alt="Jeff Senior Quote">
-      <p>You miss 100 percent of the shots you don't take... and in my case, you also miss 100 percent of the shots you do take sometimes too...</p>
+      <p>
+        Jeff Ryan is a filmmaker hailing from the greatest state in America: New Jersey. Despite his lofty dreams of becoming a successful filmmaker, he, like so many others on this circus ride, found himself facing the sweet smell of rejection on a daily basis. Earlier this year, Jeff found himself falling to his knees and crying into an unwashed pillow, after receiving his ninth rejection from SXSW. It was then that Jeff decided to create a festival of his own. After a record number of submissions in its inaugural year, Jeff feels confident that mortaging his home and personal assets to make this dream a reality was a smart decision. Time will tell, but Jeff believes he can double his submission count by 2026 if the stars continue to align.
+      </p>
+      <p>
+        and in my case, you also miss 100 percent of the shots <b><u>YOU DO TAKE</u></b> sometimes too...
+      </p>
     </section>
 
-    <!-- User-Generated Content Form (Netlify Forms) -->
+    <!-- SUBMIT Section: User-Generated Content Form -->
     <section id="ugc">
-      <h2>Submit Your Rejected Film</h2>
+      <h2>SUBMIT</h2>
+      <h3>Submit Your Rejected Film</h3>
       <form name="rejected-film" method="POST" data-netlify="true">
         <input type="hidden" name="form-name" value="rejected-film">
         <label for="film-title">Film Title:</label>
@@ -284,6 +307,9 @@
         
         <button type="submit">Submit</button>
       </form>
+      <p>
+        We only accept films that have been brutally rejected by the festivals that champion "STUDIO INDIE FILMS." Please share a screenshot or fun story of a time your film has been rejected, and once we receive that, we will consider and accept your film into the Rejecta Film Festival. Failure to meet our submission guidelines means you are likely already successful, and therefore, our jealous members cannot deal with being compared to you and your fancy-ass success, so we will NOT REVIEW your film. In fact, we'll invoice you for the extra box of tear-filled-tissues Jeff will have to buy after watching you find joy in your life! Okay?? SO just follow the G** D*** RULES!
+      </p>
     </section>
 
     <!-- Interactive Quiz -->
@@ -351,6 +377,19 @@
           menuToggle.setAttribute('aria-expanded', !isExpanded);
           menu.classList.toggle('active');
       });
+
+      // Mooch Logo Hover Effect: switch image on hover
+      const moochLogo = document.getElementById('mooch-logo');
+      if(moochLogo) {
+        moochLogo.addEventListener('mouseover', function() {
+          moochLogo.src = "images/mooch_logo_pink.png";
+        });
+        moochLogo.addEventListener('mouseout', function() {
+          moochLogo.src = "images/mooch_logo_black.png";
+        });
+      }
+
+      // Animated Submission Counter remains static as "1"
 
       // MOOCH Premiere Countdown Timer
       const countdownElem = document.getElementById('countdown');
