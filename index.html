@@ -8,7 +8,7 @@
   <!-- Preload Custom Font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
 
-  <!-- Custom Font and Styles -->
+  <!-- Inline CSS for all styling -->
   <style>
     @font-face {
       font-family: 'Higher Jump';
@@ -19,10 +19,10 @@
 
     body {
       background-color: #fff;
-      text-align: center;
-      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
+      text-align: center;
     }
 
     header {
@@ -38,7 +38,6 @@
       background-color: #000;
       z-index: 1002;
       padding: 10px 0;
-      text-align: center;
       font-family: 'Higher Jump', sans-serif;
       box-shadow: 0 4px 2px -2px gray;
     }
@@ -74,7 +73,6 @@
       .menu-toggle {
         display: flex;
       }
-
       #menu {
         display: none;
         flex-direction: column;
@@ -85,7 +83,6 @@
         width: 100%;
         z-index: 1001;
       }
-
       #menu.active {
         display: flex;
       }
@@ -110,7 +107,6 @@
       margin: 100px auto 20px;
       text-align: center;
     }
-
     .logo-container img {
       max-width: 100%;
       height: auto;
@@ -118,11 +114,72 @@
 
     h2, h3 {
       font-family: 'Higher Jump', sans-serif;
-      text-align: center;
     }
 
     main {
       padding: 20px;
+      margin-top: 70px; /* space for sticky nav */
+    }
+
+    section {
+      margin: 40px 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+    }
+
+    /* Submission Counter */
+    #submission-counter {
+      font-size: 3em;
+      color: #333;
+    }
+
+    /* Timeline styling */
+    #timeline ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    #timeline ul li {
+      cursor: pointer;
+      padding: 5px;
+      transition: background 0.3s;
+    }
+    #timeline ul li:hover {
+      background-color: #f0f0f0;
+    }
+    #timeline-info {
+      margin-top: 10px;
+      font-style: italic;
+      color: #555;
+    }
+
+    /* Social Media Links */
+    .social-media {
+      margin: 20px 0;
+    }
+    .social-media img {
+      width: 40px;
+      margin: 0 10px;
+    }
+
+    /* Form Styling */
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -151,49 +208,189 @@
       <img id="logo" src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
     </div>
 
-    <!-- Sections -->
-    <section id="about">
-      <h2>About Rejecta</h2>
-      <p>Description of the film festival or mission statement can go here.</p>
+    <!-- Animated Submission Counter -->
+    <section id="submissions">
+      <h2>Record Submissions</h2>
+      <div id="submission-counter">0</div>
+      <p>We've received a record number of submissions!</p>
     </section>
-    <section id="schedule">
-      <h2>Schedule</h2>
-      <p>Event schedule details go here.</p>
+
+    <!-- MOOCH Premiere Countdown -->
+    <section id="countdown-section">
+      <h2>MOOCH Premiere Countdown</h2>
+      <div id="countdown">Loading countdown...</div>
     </section>
-    <section id="films">
-      <h2>Films</h2>
-      <p>Film lineup or information goes here.</p>
+
+    <!-- Interactive Festival Timeline -->
+    <section id="timeline">
+      <h2>Festival Timeline</h2>
+      <ul>
+        <li data-info="Our first rejection hit the market in 2000!">2000: The First Rejection</li>
+        <li data-info="2005 saw a rejection revolution!">2005: Rejection Revolution</li>
+        <li data-info="2025: The record-breaking MOOCH Era begins!">2025: The MOOCH Era</li>
+      </ul>
+      <div id="timeline-info"></div>
     </section>
-    <section id="press">
-      <h2>Press</h2>
-      <p>Press releases or media information can be placed here.</p>
+
+    <!-- User-Generated Content Form (Netlify Forms) -->
+    <section id="ugc">
+      <h2>Submit Your Rejected Film</h2>
+      <form name="rejected-film" method="POST" data-netlify="true">
+        <input type="hidden" name="form-name" value="rejected-film">
+        <label for="film-title">Film Title:</label>
+        <input type="text" id="film-title" name="film-title" required>
+        
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required></textarea>
+        
+        <button type="submit">Submit</button>
+      </form>
     </section>
-    <section id="contact">
-      <h2>Contact</h2>
-      <p>Contact information goes here.</p>
+
+    <!-- Interactive Quiz -->
+    <section id="quiz">
+      <h2>Which Rejected Filmmaker Are You?</h2>
+      <p>Answer a few fun questions to find out!</p>
+      <button id="start-quiz">Start Quiz</button>
+      <div id="quiz-section" style="display:none;">
+         <!-- Placeholder for quiz content -->
+         <p>Imagine some fun questions here...</p>
+         <button id="finish-quiz">Finish Quiz</button>
+      </div>
+      <div id="quiz-result"></div>
+    </section>
+
+    <!-- Dynamic Trailer / Teaser Section -->
+    <section id="trailer">
+      <h2>MOOCH Trailer</h2>
+      <video id="mooch-trailer" controls width="600">
+        <source src="videos/mooch_trailer.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <div id="director-commentary" style="display:none;">
+         <p>Director's commentary: "This film was rejected—but we made it work!"</p>
+      </div>
+    </section>
+
+    <!-- Easter Eggs / Hidden Content -->
+    <section id="easter-eggs">
+      <h2>Discover Easter Eggs!</h2>
+      <button id="reveal-easter-egg">Reveal Surprise</button>
+      <div id="easter-egg-content" style="display:none;">
+         <p>You found a secret rejection note: "Better luck next time!"</p>
+      </div>
+    </section>
+
+    <!-- Fake Awards Section -->
+    <section id="fake-awards">
+      <h2>Fake Awards</h2>
+      <p>Vote for your favorite category:</p>
+      <button class="award-btn" data-category="Best Rejection">Vote Best Rejection</button>
+      <button class="award-btn" data-category="Most Dramatic Rejection">Vote Most Dramatic Rejection</button>
+      <div id="award-results"></div>
     </section>
   </main>
 
   <!-- Social Media Links -->
   <div class="social-media">
-    <a href="https://www.instagram.com/rejectafilmfestival/" class="image-hover-instagram" target="_blank">
+    <a href="https://www.instagram.com/rejectafilmfestival/" target="_blank">
       <img src="images/rejecta_instagram.png" alt="Instagram" />
     </a>
-    <a href="https://www.imdb.com/" class="image-hover-imdb" target="_blank">
+    <a href="https://www.imdb.com/" target="_blank">
       <img src="images/rejecta_imdb.png" alt="IMDb" />
     </a>
   </div>
 
-  <!-- Scripts -->
+  <!-- Inline JavaScript for Interactivity -->
   <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
+      // Navigation Toggle
       const menuToggle = document.getElementById('menu-toggle');
       const menu = document.getElementById('menu');
-
       menuToggle.addEventListener('click', () => {
-        const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-        menuToggle.setAttribute('aria-expanded', !isExpanded);
-        menu.classList.toggle('active');
+          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+          menuToggle.setAttribute('aria-expanded', !isExpanded);
+          menu.classList.toggle('active');
+      });
+
+      // Animated Submission Counter
+      const counter = document.getElementById('submission-counter');
+      let count = 0;
+      const targetCount = 5000; // Change to your desired submission count
+      const increment = targetCount / 100;
+      const counterInterval = setInterval(() => {
+          count += increment;
+          if(count >= targetCount) {
+              count = targetCount;
+              clearInterval(counterInterval);
+          }
+          counter.textContent = Math.floor(count);
+      }, 30);
+
+      // MOOCH Premiere Countdown Timer
+      const countdownElem = document.getElementById('countdown');
+      const premiereDate = new Date("June 7, 2025 00:00:00").getTime();
+      const countdownInterval = setInterval(() => {
+          const now = new Date().getTime();
+          const distance = premiereDate - now;
+          if(distance < 0) {
+              clearInterval(countdownInterval);
+              countdownElem.textContent = "Premiere has started!";
+              return;
+          }
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          countdownElem.textContent = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      }, 1000);
+
+      // Interactive Festival Timeline
+      const timelineItems = document.querySelectorAll('#timeline ul li');
+      const timelineInfo = document.getElementById('timeline-info');
+      timelineItems.forEach(item => {
+          item.addEventListener('click', () => {
+              timelineInfo.textContent = item.getAttribute('data-info');
+          });
+      });
+
+      // Interactive Quiz
+      const startQuizBtn = document.getElementById('start-quiz');
+      const quizSection = document.getElementById('quiz-section');
+      const finishQuizBtn = document.getElementById('finish-quiz');
+      const quizResult = document.getElementById('quiz-result');
+      startQuizBtn.addEventListener('click', () => {
+          quizSection.style.display = 'block';
+      });
+      finishQuizBtn.addEventListener('click', () => {
+          quizSection.style.display = 'none';
+          quizResult.textContent = "You are the quintessential rejected filmmaker!";
+      });
+
+      // Dynamic Trailer: Show Director's Commentary after video ends
+      const trailerVideo = document.getElementById('mooch-trailer');
+      const directorCommentary = document.getElementById('director-commentary');
+      trailerVideo.addEventListener('ended', () => {
+          directorCommentary.style.display = 'block';
+      });
+
+      // Easter Eggs
+      const revealEggBtn = document.getElementById('reveal-easter-egg');
+      const easterEggContent = document.getElementById('easter-egg-content');
+      revealEggBtn.addEventListener('click', () => {
+          easterEggContent.style.display = 'block';
+      });
+
+      // Fake Awards Voting
+      const awardButtons = document.querySelectorAll('.award-btn');
+      const awardResults = document.getElementById('award-results');
+      let votes = {};
+      awardButtons.forEach(button => {
+          button.addEventListener('click', () => {
+              const category = button.getAttribute('data-category');
+              votes[category] = (votes[category] || 0) + 1;
+              awardResults.textContent = JSON.stringify(votes, null, 2);
+          });
       });
     });
   </script>
