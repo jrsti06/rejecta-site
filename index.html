@@ -7,8 +7,11 @@
   
   <!-- Preload Custom Font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
+  
+  <!-- Google Fonts for Montserrat -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Inline CSS for all styling -->
+  <!-- Inline CSS -->
   <style>
     @font-face {
       font-family: 'Higher Jump';
@@ -16,12 +19,13 @@
       font-weight: normal;
       font-style: normal;
     }
-
+    
     body {
       background-color: #fff;
       margin: 0;
       padding: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 18px;
       text-align: center;
     }
 
@@ -97,12 +101,12 @@
     }
 
     #sticky-nav a:hover,
-    #sticky-nav a:focus { 
-      color: #FF5733; 
+    #sticky-nav a:focus {
+      color: #FF5733;
       outline: none;
     }
 
-    /* Centered Logo */
+    /* Logo Container */
     .logo-container {
       margin: 100px auto 20px;
       text-align: center;
@@ -110,6 +114,8 @@
     .logo-container img {
       max-width: 100%;
       height: auto;
+      display: block;
+      margin: 0 auto;
     }
 
     h2, h3 {
@@ -127,13 +133,18 @@
       padding-bottom: 20px;
     }
 
-    /* Submission Counter */
+    /* Submission Counter with Pulse Animation */
+    @keyframes pulseColor {
+      0% { color: black; transform: scale(1); }
+      50% { color: #f73eff; transform: scale(1.1); }
+      100% { color: black; transform: scale(1); }
+    }
     #submission-counter {
       font-size: 3em;
-      color: #333;
+      animation: pulseColor 2s infinite;
     }
 
-    /* Timeline styling */
+    /* Timeline Styling */
     #timeline ul {
       list-style-type: none;
       padding: 0;
@@ -148,6 +159,21 @@
     }
     #timeline-info {
       margin-top: 10px;
+      font-style: italic;
+      color: #555;
+    }
+
+    /* Festival Map */
+    #festival-map {
+      margin-top: 20px;
+    }
+    #festival-map img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    #festival-map p {
       font-style: italic;
       color: #555;
     }
@@ -203,15 +229,16 @@
   </header>
 
   <main>
-    <!-- Centered Logo -->
+    <!-- Logo Container with Mooch Logo and Rejected By GIF -->
     <div class="logo-container">
-      <img id="logo" src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
+      <img id="logo" src="images/mooch_logo_pink.png" alt="Mooch Logo">
+      <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
     </div>
 
     <!-- Animated Submission Counter -->
     <section id="submissions">
       <h2>Record Submissions</h2>
-      <div id="submission-counter">0</div>
+      <div id="submission-counter">1</div>
       <p>We've received a record number of submissions!</p>
     </section>
 
@@ -230,6 +257,18 @@
         <li data-info="2025: The record-breaking MOOCH Era begins!">2025: The MOOCH Era</li>
       </ul>
       <div id="timeline-info"></div>
+      <!-- Festival Map with Guide Image and Comedic Comment -->
+      <div id="festival-map">
+        <img src="images/fesstival_guide.png" alt="Festival Guide">
+        <p>Just a short walk across the street from that other festival that loves to reject people.</p>
+      </div>
+    </section>
+
+    <!-- About Us Section with GIF and Snarky Quote -->
+    <section id="about">
+      <h2>About Rejecta</h2>
+      <img src="images/jefff_senior_quote.GIF" alt="Jeff Senior Quote">
+      <p>You miss 100 percent of the shots you don't take... and in my case, you also miss 100 percent of the shots you do take sometimes too...</p>
     </section>
 
     <!-- User-Generated Content Form (Netlify Forms) -->
@@ -312,20 +351,6 @@
           menuToggle.setAttribute('aria-expanded', !isExpanded);
           menu.classList.toggle('active');
       });
-
-      // Animated Submission Counter
-      const counter = document.getElementById('submission-counter');
-      let count = 0;
-      const targetCount = 5000; // Change to your desired submission count
-      const increment = targetCount / 100;
-      const counterInterval = setInterval(() => {
-          count += increment;
-          if(count >= targetCount) {
-              count = targetCount;
-              clearInterval(counterInterval);
-          }
-          counter.textContent = Math.floor(count);
-      }, 30);
 
       // MOOCH Premiere Countdown Timer
       const countdownElem = document.getElementById('countdown');
