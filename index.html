@@ -8,7 +8,7 @@
   <!-- Preload Higher Jump font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
   
-  <!-- Using system font "Test Tiempos Text" for body (ensure it's available) -->
+  <!-- Use "Test Tiempos Text" for body text (ensure it’s available on your system or host it) -->
   
   <!-- Inline CSS -->
   <style>
@@ -40,13 +40,13 @@
       text-align: left;
     }
     
-    /* Banner with Rejecta Film Festival logo */
+    /* Banner with scaled Rejecta Festival Logo */
     #banner {
       margin-top: 20px;
       text-align: center;
     }
     #banner img {
-      max-width: 100%;
+      width: 50%; /* Reduced size */
       height: auto;
       display: block;
       margin: 0 auto;
@@ -135,50 +135,63 @@
     }
     
     /* Record Submissions Section */
-    #submissions h2, 
-    #countdown-section h2,
-    #map h2,
-    #about h2,
-    #ugc h2, 
-    #ugc h3 {
+    #submissions {
+      text-align: center;
+    }
+    #submissions h2 {
       font-family: 'Higher Jump', sans-serif;
+    }
+    #submissions p {
+      font-style: italic;
+      margin: 10px 0;
     }
     #submission-counter {
       font-family: 'Higher Jump', sans-serif;
       font-weight: bold;
       font-size: 3em;
-      animation: pulseColor 2s infinite;
-      text-align: center;
+      cursor: pointer;
+      margin-bottom: 10px;
+      transition: transform 0.3s;
     }
-    @keyframes pulseColor {
-      0% { color: black; transform: scale(1); }
-      50% { color: #f73eff; transform: scale(1.1); }
-      100% { color: black; transform: scale(1); }
+    #submission-counter:hover {
+      transform: scale(1.1);
     }
     
-    /* FILMS Section: Mooch Logo */
+    /* FILMS Section: Mooch Logo and Mooch Still */
     #films .logo-container {
       text-align: center;
       margin: 20px auto;
     }
     #mooch-logo {
-      max-width: 150px;
+      max-width: 600px; /* Enlarged (approx. 4x previous size) */
       height: auto;
       transition: transform 0.3s;
+      display: block;
+      margin: 0 auto;
     }
     #mooch-logo:hover {
-      transform: scale(1.1);
+      transform: scale(1.05);
+    }
+    #mooch-still {
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 20px auto 0;
     }
     
-    /* MAP Section: Festival Guide */
+    /* MAP Section: Festival Guide with Spacer */
     #map h2 {
       text-align: center;
+      font-family: 'Higher Jump', sans-serif;
     }
     #map img {
       max-width: 100%;
       height: auto;
       display: block;
       margin: 0 auto;
+    }
+    .spacer {
+      height: 20px;
     }
     #map p {
       font-style: italic;
@@ -189,32 +202,35 @@
     /* ABOUT Section */
     #about h2 {
       text-align: center;
+      font-family: 'Higher Jump', sans-serif;
     }
     #about p {
       margin-bottom: 20px;
     }
+    #about img {
+      display: block;
+      margin: 0 auto;
+    }
     
-    /* SUBMIT Section */
+    /* SUBMIT Section: Google Form Embed */
     #ugc {
       text-align: center;
     }
-    #ugc form {
-      text-align: left;
+    #ugc h2, #ugc h3 {
+      font-family: 'Higher Jump', sans-serif;
     }
-    label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-    input, textarea {
+    .form-container {
+      display: inline-block;
+      max-width: 640px;
       width: 100%;
-      padding: 8px;
-      box-sizing: border-box;
-      margin-bottom: 10px;
     }
-    button {
-      padding: 10px 20px;
-      cursor: pointer;
+    .form-container iframe {
+      width: 640px;
+      height: 1101px;
+      border: 0;
     }
+    /* Note: If "Untitled Form" appears above the form,
+       remove it by editing your Google Form’s title. */
     
     /* Footer */
     footer {
@@ -227,13 +243,13 @@
       margin-bottom: 10px;
     }
     .footer-social img {
-      width: 40px;
+      width: 15px; /* 3x smaller than previous size */
       margin: 0 10px;
     }
   </style>
 </head>
 <body>
-  <!-- Banner with Rejecta Film Festival logo -->
+  <!-- Banner with Rejecta Festival Logo -->
   <div id="banner">
     <img src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
   </div>
@@ -257,18 +273,19 @@
   </header>
   
   <main>
-    <!-- Record Submissions Section (now appears right after the banner) -->
+    <!-- Record Submissions Section (centered) -->
     <section id="submissions">
       <h2>Record Submissions</h2>
-      <div id="submission-counter">1</div>
       <p>We've received a record number of submissions!</p>
+      <div id="submission-counter">CLICK TO REVEAL</div>
     </section>
     
-    <!-- FILMS Section: Mooch Logo and Rejected By -->
+    <!-- FILMS Section: Mooch Logo and Mooch Still -->
     <section id="films">
       <div class="logo-container">
         <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
         <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
+        <img id="mooch-still" src="images/mooch_still.jpg" alt="Mooch Still">
       </div>
     </section>
     
@@ -282,12 +299,14 @@
     <section id="map">
       <h2>FESTIVAL GUIDE</h2>
       <img src="images/fesstival_guide.png" alt="Festival Guide">
+      <div class="spacer"></div>
       <p>Just a short walk across the street from that other festival that loves to reject people.</p>
     </section>
     
     <!-- ABOUT Section -->
     <section id="about">
       <h2>ABOUT</h2>
+      <p>You miss 100% of the shots you don't take...</p>
       <p>
         Jeff Ryan is a filmmaker hailing from the greatest state in America: New Jersey. Despite his lofty dreams of becoming a successful filmmaker, he, like so many others on this circus ride, found himself facing the sweet smell of rejection on a daily basis. Earlier this year, Jeff found himself falling to his knees and crying into an unwashed pillow, after receiving his ninth rejection from SXSW. It was then that Jeff decided to create a festival of his own. After a record number of submissions in its inaugural year, Jeff feels confident that mortgaging his home and personal assets to make this dream a reality was a smart decision. Time will tell, but Jeff believes he can double his submission count by 2026 if the stars continue to align.
       </p>
@@ -297,20 +316,20 @@
       </p>
     </section>
     
-    <!-- SUBMIT Section: User-Generated Content Form -->
+    <!-- SUBMIT Section: Google Form Embed -->
     <section id="ugc">
       <h2>SUBMIT</h2>
       <h3>Submit Your Rejected Film</h3>
-      <form name="rejected-film" method="POST" data-netlify="true">
-        <input type="hidden" name="form-name" value="rejected-film">
-        <label for="film-title">Film Title:</label>
-        <input type="text" id="film-title" name="film-title" required>
-        
-        <label for="description">Description:</label>
-        <textarea id="description" name="description" required></textarea>
-        
-        <button type="submit">Submit</button>
-      </form>
+      <div class="form-container">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSewHNUmnCXQJpYphp2t872Qd40g7cy-LkSgPenAX8eOVW4mMQ/viewform?embedded=true" 
+                width="640" 
+                height="1101" 
+                frameborder="0" 
+                marginheight="0" 
+                marginwidth="0">
+          Loading…
+        </iframe>
+      </div>
       <p>
         We only accept films that have been brutally rejected by the festivals that champion "STUDIO INDIE FILMS." Please share a screenshot or fun story of a time your film has been rejected, and once we receive that, we will consider and accept your film into the Rejecta Film Festival. Failure to meet our submission guidelines means you are likely already successful, and therefore, our jealous members cannot deal with being compared to you and your fancy-ass success, so we will NOT REVIEW your film. In fact, we'll invoice you for the extra box of tear-filled-tissues Jeff will have to buy after watching you find joy in your life! Okay?? SO just follow the G** D*** RULES!
       </p>
@@ -352,6 +371,14 @@
           moochLogo.src = "images/mooch_logo_black.png";
         });
       }
+      
+      // Record Submissions: Toggle text on click
+      const submissionCounter = document.getElementById('submission-counter');
+      submissionCounter.addEventListener('click', function() {
+        if (submissionCounter.textContent.trim() === "CLICK TO REVEAL") {
+          submissionCounter.textContent = "ONE";
+        }
+      });
       
       // MOOCH Premiere Countdown Timer
       const countdownElem = document.getElementById('countdown');
