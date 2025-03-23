@@ -7,8 +7,7 @@
   
   <!-- Preload Higher Jump font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
-  
-  <!-- Google Fonts: Bebas Neue for header3 and Roboto for body text -->
+  <!-- Google Fonts: Bebas Neue for headers and Roboto for body text -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
@@ -22,7 +21,6 @@
       font-style: normal;
     }
     body {
-      /* New fresh background gradient and using Roboto for body text */
       background: linear-gradient(135deg, #fff, #f9f9f9);
       margin: 0;
       padding: 0;
@@ -41,6 +39,14 @@
     /* Top spacer */
     .top-spacer {
       height: 50px;
+    }
+    /* Use off-white background for sections */
+    section {
+      background-color: #fafafa;
+      margin: 40px 0;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
     }
     /* Banner with scaled Rejecta Festival Logo */
     #banner {
@@ -127,7 +133,7 @@
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    /* Hover color changed to our pink (#f73eff) */
+    /* Change hover color to pink (#f73eff) */
     #sticky-nav a:hover,
     #sticky-nav a:focus {
       color: #f73eff;
@@ -136,13 +142,6 @@
     main {
       padding: 20px;
       margin-top: 100px;
-    }
-    section {
-      margin: 40px 0;
-      padding: 20px;
-      border-radius: 8px;
-      background-color: #fff;
-      box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
     }
     /* Record Submissions Section */
     #submissions {
@@ -182,7 +181,7 @@
       text-align: center;
       margin: 10px auto;
     }
-    /* Place mooch_rejecta_selection above the mooch logo */
+    /* Place mooch_rejecta_selection above mooch logo */
     #mooch_rejecta_selection {
       max-width: 600px;
       height: auto;
@@ -224,7 +223,7 @@
       display: block;
       margin: 5px auto 0;
     }
-    /* Credits block: center all text lines */
+    /* Credits block */
     .credits {
       text-align: center;
       margin-top: 10px;
@@ -233,14 +232,22 @@
       font-family: 'Bebas Neue', sans-serif;
       font-size: 2em;
       margin: 10px 0;
+      color: #000;
     }
     .credits p.credit-main {
       text-align: center;
       margin: 10px 0;
+      font-size: 1.2em;
+      color: #000;
     }
     .credits .info {
       text-align: center;
       margin-top: 10px;
+    }
+    /* Update credits main text */
+    .credits p.credit-main .highlight {
+      font-family: 'Higher Jump', sans-serif;
+      text-transform: uppercase;
     }
     /* COUNTDOWN Section */
     #countdown-section h2 {
@@ -286,8 +293,15 @@
       color: #f73eff;
       margin: 10px 0;
     }
-    /* Adjusted ending text for subheading */
-    /* SUBMIT Section: Custom Form (replacing Google Form) */
+    /* New block for final About text */
+    .about-final {
+      text-align: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8em;
+      color: #000;
+      margin-top: 10px;
+    }
+    /* SUBMIT Section: Custom Form */
     #ugc {
       text-align: center;
       margin-bottom: 40px;
@@ -318,7 +332,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-    /* Style checkbox and radio groups consistently */
+    /* Consistent styling for checkbox and radio groups */
     .custom-form .checkbox-group,
     .custom-form .radio-group {
       border: 1px solid #ccc;
@@ -343,7 +357,7 @@
     .custom-form input[type="submit"]:hover {
       background-color: #d633e1;
     }
-    /* The G** D*** RULES block styling */
+    /* The G** D*** RULES block */
     #ugc .rules-header {
       font-family: 'Higher Jump', sans-serif;
       text-align: center;
@@ -375,7 +389,7 @@
       margin: 0 10px;
     }
     
-    /* Mobile responsiveness adjustments */
+    /* Mobile responsiveness */
     @media (max-width: 768px) {
       #banner img {
         width: 70%;
@@ -395,7 +409,7 @@
         width: 100%;
         height: auto;
       }
-      /* Ensure images scale on mobile */
+      /* Ensure images scale */
       #mooch-logo,
       #mooch_rejecta_selection,
       #mooch-still,
@@ -448,7 +462,7 @@
     <!-- FILMS Section -->
     <section id="films">
       <div class="logo-container">
-        <!-- mooch_rejecta_selection above the mooch logo -->
+        <!-- Moved mooch_rejecta_selection above the mooch logo -->
         <img id="mooch_rejecta_selection" src="images/mooch_rejecta_selection.png" alt="Mooch Rejecta Selection">
         <div class="small-spacer"></div>
         <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
@@ -466,8 +480,7 @@
       <div class="credits">
         <h3>Based on a pathetic true story</h3>
         <p class="credit-main">
-          A feature film directed by the biggest rejecta alive:<br>
-          Jeff Ryan
+          A feature film by <span class="highlight">JEFF RYAN</span> – the biggest <span class="highlight">REJECTA</span> alive
         </p>
         <div class="info">
           <p>Runtime: 91 Minutes</p>
@@ -504,7 +517,8 @@
       </p>
       <img src="images/jefff_senior_quote.GIF" alt="Jeff Senior Quote">
       <div class="spacer"></div>
-      <h3 class="subheading">and in my case, you also miss 100 percent of the shots <b><u>YOU DO TAKE</u></b></h3>
+      <h3 class="subheading">AND IN MY CASE...</h3>
+      <p class="about-final">You miss 100% of the shots you do take</p>
     </section>
     
     <!-- SUBMIT Section: Custom Form -->
@@ -585,6 +599,7 @@
               }
           });
       });
+      
       // Mooch Logo Hover Effect
       const moochLogo = document.getElementById('mooch-logo');
       if(moochLogo) {
@@ -595,6 +610,7 @@
           moochLogo.src = "images/mooch_logo_black.png";
         });
       }
+      
       // Record Submissions Toggle
       const submissionCounter = document.getElementById('submission-counter');
       submissionCounter.addEventListener('click', function() {
@@ -603,6 +619,7 @@
               submissionCounter.classList.add("revealed");
           }
       });
+      
       // Countdown Timer
       function updateCountdown() {
           const now = new Date().getTime();
@@ -628,7 +645,7 @@
       updateCountdown();
       const countdownInterval = setInterval(updateCountdown, 1000);
       
-      // Custom Form Submission via AJAX (replace the URL with your Apps Script endpoint)
+      // Custom Form Submission via AJAX (replace with your Apps Script endpoint)
       const rejectaForm = document.getElementById('rejectaForm');
       rejectaForm.addEventListener('submit', function(e) {
           e.preventDefault();
