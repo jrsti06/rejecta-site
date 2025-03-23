@@ -233,7 +233,7 @@
       text-align: center;
       margin-top: 10px;
     }
-    /* Updated credits block text */
+    /* Updated Credits Text */
     .credits p.credit-main span.directed {
       font-family: 'Higher Jump', sans-serif;
       color: #000;
@@ -241,7 +241,7 @@
     .credits p.credit-main span.rejecta {
       font-family: 'Higher Jump', sans-serif;
       color: #f73eff;
-      font-size: 1.5em;
+      font-size: 0.5em; /* 3x smaller than the Directed By text */
     }
     /* COUNTDOWN Section */
     #countdown-section h2 {
@@ -380,7 +380,6 @@
       width: 15px;
       margin: 0 10px;
     }
-    
     @media (max-width: 768px) {
       #banner img {
         width: 70%;
@@ -466,7 +465,7 @@
         <h3>Based on a pathetic true story</h3>
         <p class="credit-main">
           <span class="directed" style="font-family:'Higher Jump', sans-serif; color:#000;">Directed By: JEFF RYAN</span><br>
-          <span class="rejecta" style="font-family:'Higher Jump', sans-serif; color:#f73eff;">BIGGEST REJECTA ALIVE</span>
+          <span class="rejecta" style="font-family:'Higher Jump', sans-serif; color:#f73eff; font-size:0.5em;">BIGGEST REJECTA ALIVE</span>
         </p>
       </div>
     </section>
@@ -509,11 +508,9 @@
       <h3 style="font-family:'Higher Jump', sans-serif; text-align:center;">Submit Your Rejected Film</h3>
       <div class="custom-form">
         <form id="rejectaForm">
-          <!-- Question 1 -->
           <label for="film-title">Film Title</label>
           <input type="text" id="film-title" name="filmTitle" required>
           
-          <!-- Question 2 -->
           <label>Have you been rejected from ANY of the following?</label>
           <div class="checkbox-group">
             <label><input type="checkbox" name="festivals" value="Sundance Film Festival"> Sundance Film Festival</label>
@@ -523,14 +520,12 @@
             <label><input type="checkbox" name="festivals" value="Toronto International Film Festival"> Toronto International Film Festival</label>
           </div>
           
-          <!-- Question 3 -->
           <label>If yes, did you cry?</label>
           <div class="radio-group">
             <label><input type="radio" name="cry" value="Yes" required> Yes</label>
             <label><input type="radio" name="cry" value="Yes, a lot" required> Yes, a lot</label>
           </div>
           
-          <!-- Question 4 -->
           <label>Please confirm you've read the G** D*** rules</label>
           <div class="radio-group">
             <label><input type="radio" name="rules" value="Yes" required> Yes</label>
