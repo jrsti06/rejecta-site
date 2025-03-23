@@ -58,6 +58,7 @@
     header {
       position: relative;
     }
+    /* Sticky Navigation */
     #sticky-nav {
       position: fixed;
       top: 0;
@@ -89,7 +90,14 @@
       width: 30px;
       margin-bottom: 4px;
     }
+    /* On mobile, show a "MENU" label and pink background for visibility */
     @media (max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+        background-color: #f73eff;
+        padding: 5px;
+        border-radius: 4px;
+      }
       .menu-toggle::after {
         content: " MENU";
         color: white;
@@ -103,9 +111,6 @@
       z-index: 1000;
     }
     @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-      }
       #menu {
         display: none;
         flex-direction: column;
@@ -136,6 +141,7 @@
       padding: 20px;
       margin-top: 100px;
     }
+    /* Record Submissions */
     #submissions {
       text-align: center;
     }
@@ -168,10 +174,12 @@
       50% { color: #f73eff; transform: scale(1.1); }
       100% { color: #f73eff; transform: scale(1); }
     }
+    /* FILMS Section */
     #films .logo-container {
       text-align: center;
       margin: 10px auto;
     }
+    /* Order: mooch_rejecta_selection above mooch_logo */
     #mooch_rejecta_selection {
       max-width: 600px;
       height: auto;
@@ -233,7 +241,7 @@
       text-align: center;
       margin-top: 10px;
     }
-    /* Updated Credits Text */
+    /* Updated credits text */
     .credits p.credit-main span.directed {
       font-family: 'Higher Jump', sans-serif;
       color: #000;
@@ -241,7 +249,7 @@
     .credits p.credit-main span.rejecta {
       font-family: 'Higher Jump', sans-serif;
       color: #f73eff;
-      font-size: 0.5em; /* 3x smaller than the Directed By text */
+      font-size: 0.33em; /* 3x smaller */
     }
     /* COUNTDOWN Section */
     #countdown-section h2 {
@@ -380,6 +388,7 @@
       width: 15px;
       margin: 0 10px;
     }
+    /* Mobile responsiveness */
     @media (max-width: 768px) {
       #banner img {
         width: 70%;
@@ -402,7 +411,8 @@
       #mooch_rejecta_selection,
       #mooch-still,
       .variety-link img,
-      #rejected-by {
+      #rejected-by,
+      #map img {
         max-width: 90%;
         height: auto;
       }
@@ -418,7 +428,7 @@
   </div>
   
   <header>
-    <!-- Sticky Navigation Bar -->
+    <!-- Sticky Navigation -->
     <nav id="sticky-nav">
       <div id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
         <span></span>
@@ -465,7 +475,7 @@
         <h3>Based on a pathetic true story</h3>
         <p class="credit-main">
           <span class="directed" style="font-family:'Higher Jump', sans-serif; color:#000;">Directed By: JEFF RYAN</span><br>
-          <span class="rejecta" style="font-family:'Higher Jump', sans-serif; color:#f73eff; font-size:0.5em;">BIGGEST REJECTA ALIVE</span>
+          <span class="rejecta" style="font-family:'Higher Jump', sans-serif; color:#f73eff; font-size:0.33em;">BIGGEST REJECTA ALIVE</span>
         </p>
       </div>
     </section>
@@ -508,9 +518,11 @@
       <h3 style="font-family:'Higher Jump', sans-serif; text-align:center;">Submit Your Rejected Film</h3>
       <div class="custom-form">
         <form id="rejectaForm">
+          <!-- Question 1 -->
           <label for="film-title">Film Title</label>
           <input type="text" id="film-title" name="filmTitle" required>
           
+          <!-- Question 2 -->
           <label>Have you been rejected from ANY of the following?</label>
           <div class="checkbox-group">
             <label><input type="checkbox" name="festivals" value="Sundance Film Festival"> Sundance Film Festival</label>
@@ -520,12 +532,14 @@
             <label><input type="checkbox" name="festivals" value="Toronto International Film Festival"> Toronto International Film Festival</label>
           </div>
           
+          <!-- Question 3 -->
           <label>If yes, did you cry?</label>
           <div class="radio-group">
             <label><input type="radio" name="cry" value="Yes" required> Yes</label>
             <label><input type="radio" name="cry" value="Yes, a lot" required> Yes, a lot</label>
           </div>
           
+          <!-- Question 4 -->
           <label>Please confirm you've read the G** D*** rules</label>
           <div class="radio-group">
             <label><input type="radio" name="rules" value="Yes" required> Yes</label>
@@ -557,6 +571,7 @@
   
   <script>
     document.addEventListener('DOMContentLoaded', function() {
+      // Navigation Toggle
       const menuToggle = document.getElementById('menu-toggle');
       const menu = document.getElementById('menu');
       menuToggle.addEventListener('click', () => {
@@ -564,6 +579,7 @@
           menuToggle.setAttribute('aria-expanded', !isExpanded);
           menu.classList.toggle('active');
       });
+      // Auto-collapse mobile menu when a link is clicked
       const navLinks = document.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
           link.addEventListener('click', () => {
@@ -573,6 +589,7 @@
               }
           });
       });
+      // Mooch Logo Hover Effect
       const moochLogo = document.getElementById('mooch-logo');
       if(moochLogo) {
         moochLogo.addEventListener('mouseover', function() {
@@ -582,6 +599,7 @@
           moochLogo.src = "images/mooch_logo_black.png";
         });
       }
+      // Record Submissions Toggle
       const submissionCounter = document.getElementById('submission-counter');
       submissionCounter.addEventListener('click', function() {
           if (submissionCounter.textContent.trim() === "CLICK TO REVEAL") {
@@ -589,6 +607,7 @@
               submissionCounter.classList.add("revealed");
           }
       });
+      // Countdown Timer
       function updateCountdown() {
           const now = new Date().getTime();
           const distance = premiereDate - now;
@@ -612,6 +631,8 @@
       const premiereDate = new Date("June 7, 2025 00:00:00").getTime();
       updateCountdown();
       const countdownInterval = setInterval(updateCountdown, 1000);
+      
+      // Custom Form Submission via AJAX (replace URL with your Apps Script endpoint)
       const rejectaForm = document.getElementById('rejectaForm');
       rejectaForm.addEventListener('submit', function(e) {
           e.preventDefault();
