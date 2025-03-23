@@ -7,7 +7,7 @@
   
   <!-- Preload Higher Jump font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
-  <!-- Google Fonts: Bebas Neue for headers and Roboto for body text -->
+  <!-- Google Fonts: Bebas Neue for header3 and Roboto for body text -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
@@ -21,7 +21,7 @@
       font-style: normal;
     }
     body {
-      background: linear-gradient(135deg, #fff, #f9f9f9);
+      background-color: #fff;
       margin: 0;
       padding: 0;
       font-family: 'Roboto', sans-serif;
@@ -29,7 +29,7 @@
       color: #333;
       text-align: center;
     }
-    /* Constrain content width for readability */
+    /* Constrain content width */
     main, section, p {
       max-width: 800px;
       margin: 0 auto;
@@ -40,15 +40,15 @@
     .top-spacer {
       height: 50px;
     }
-    /* Use off-white background for sections */
+    /* Use white backgrounds for sections */
     section {
-      background-color: #fafafa;
+      background-color: #fff;
       margin: 40px 0;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
     }
-    /* Banner with scaled Rejecta Festival Logo */
+    /* Banner */
     #banner {
       text-align: center;
       margin-bottom: 20px;
@@ -62,7 +62,7 @@
     header {
       position: relative;
     }
-    /* Sticky Navigation Bar */
+    /* Sticky Navigation */
     #sticky-nav {
       position: fixed;
       top: 0;
@@ -94,7 +94,7 @@
       width: 30px;
       margin-bottom: 4px;
     }
-    /* On mobile, show a "MENU" label */
+    /* Mobile MENU label */
     @media (max-width: 768px) {
       .menu-toggle::after {
         content: " MENU";
@@ -133,7 +133,7 @@
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    /* Change hover color to pink (#f73eff) */
+    /* Menu hover changes to pink (#f73eff) */
     #sticky-nav a:hover,
     #sticky-nav a:focus {
       color: #f73eff;
@@ -176,12 +176,12 @@
       50% { color: #f73eff; transform: scale(1.1); }
       100% { color: #f73eff; transform: scale(1); }
     }
-    /* FILMS Section: Images & Ordering */
+    /* FILMS Section */
     #films .logo-container {
       text-align: center;
       margin: 10px auto;
     }
-    /* Place mooch_rejecta_selection above mooch logo */
+    /* Place mooch_rejecta_selection above mooch_logo */
     #mooch_rejecta_selection {
       max-width: 600px;
       height: auto;
@@ -210,7 +210,6 @@
     .small-spacer {
       height: 10px;
     }
-    /* Ensure rejected_by.gif scales */
     #rejected-by {
       display: block;
       margin: 5px auto;
@@ -223,7 +222,7 @@
       display: block;
       margin: 5px auto 0;
     }
-    /* Credits block */
+    /* Credits Block */
     .credits {
       text-align: center;
       margin-top: 10px;
@@ -244,11 +243,13 @@
       text-align: center;
       margin-top: 10px;
     }
-    /* Update credits main text */
-    .credits p.credit-main .highlight {
+    /* Replace previous credit info with new lines in Higher Jump */
+    .credits p.credit-main span.highlight {
       font-family: 'Higher Jump', sans-serif;
       text-transform: uppercase;
     }
+    /* New Credits block content will be inserted below */
+    
     /* COUNTDOWN Section */
     #countdown-section h2 {
       text-align: center;
@@ -286,14 +287,15 @@
       display: block;
       margin: 0 auto;
     }
+    /* Change subheadings to black instead of pink */
     .subheading {
       text-align: center;
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.8em;
-      color: #f73eff;
+      color: #000;
       margin: 10px 0;
     }
-    /* New block for final About text */
+    /* Additional final about text styling */
     .about-final {
       text-align: center;
       font-family: 'Bebas Neue', sans-serif;
@@ -332,7 +334,7 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-    /* Consistent styling for checkbox and radio groups */
+    /* Checkbox and radio groups styled consistently */
     .custom-form .checkbox-group,
     .custom-form .radio-group {
       border: 1px solid #ccc;
@@ -405,10 +407,6 @@
       .countdown-item .label {
         font-size: 0.4em;
       }
-      .form-container iframe {
-        width: 100%;
-        height: auto;
-      }
       /* Ensure images scale */
       #mooch-logo,
       #mooch_rejecta_selection,
@@ -418,7 +416,6 @@
         max-width: 90%;
         height: auto;
       }
-      /* Adjust custom form fields on mobile */
       .custom-form {
         padding: 10px;
       }
@@ -462,7 +459,7 @@
     <!-- FILMS Section -->
     <section id="films">
       <div class="logo-container">
-        <!-- Moved mooch_rejecta_selection above the mooch logo -->
+        <!-- mooch_rejecta_selection appears above mooch logo -->
         <img id="mooch_rejecta_selection" src="images/mooch_rejecta_selection.png" alt="Mooch Rejecta Selection">
         <div class="small-spacer"></div>
         <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
@@ -480,12 +477,8 @@
       <div class="credits">
         <h3>Based on a pathetic true story</h3>
         <p class="credit-main">
-          A feature film by <span class="highlight">JEFF RYAN</span> – the biggest <span class="highlight">REJECTA</span> alive
+          A feature film by <span class="highlight" style="font-family:'Higher Jump', sans-serif;">JEFF RYAN</span> – the biggest <span class="highlight" style="font-family:'Higher Jump', sans-serif; font-size:1.5em;">REJECTA</span> alive
         </p>
-        <div class="info">
-          <p>Runtime: 91 Minutes</p>
-          <p>Rejected by: Sundance, SXSW, Cannes, TIFF, Tribeca (twice), and more...</p>
-        </div>
       </div>
     </section>
     
@@ -502,29 +495,29 @@
     
     <!-- MAP Section -->
     <section id="map">
-      <h2>FESTIVAL GUIDE</h2>
-      <img src="images/fesstival_guide.png" alt="Festival Guide">
+      <h2 style="font-family:'Higher Jump', sans-serif; text-align:center;">FESTIVAL GUIDE</h2>
+      <img src="images/fesstival_guide.png" alt="Festival Guide" style="display:block; margin:0 auto;">
       <div class="spacer"></div>
-      <p>Just a short walk across the street from that other festival that loves to reject people.</p>
+      <p style="font-family:'Higher Jump', sans-serif; color:#f73eff; text-align:center; margin-top:40px;">ACROSS FROM THAT OTHER FESTIVAL</p>
     </section>
     
     <!-- ABOUT Section -->
     <section id="about">
-      <h2>ABOUT</h2>
-      <h3 class="subheading">You miss 100% of the shots you don't take...</h3>
+      <h2 style="font-family:'Higher Jump', sans-serif; text-align:center;">ABOUT</h2>
+      <h3 class="subheading" style="color:#000;">You miss 100% of the shots you don't take...</h3>
       <p>
         Jeff Ryan is a filmmaker hailing from the greatest state in America: New Jersey. Despite his lofty dreams of becoming a successful filmmaker, he, like so many others on this circus ride, found himself facing the sweet smell of rejection on a daily basis. Earlier this year, Jeff found himself falling to his knees and crying into an unwashed pillow, after receiving his ninth rejection from SXSW. It was then that Jeff decided to create a festival of his own. After a record number of submissions in its inaugural year, Jeff feels confident that mortgaging his home and personal assets to make this dream a reality was a smart decision. Time will tell, but Jeff believes he can double his submission count by 2026 if the stars continue to align.
       </p>
       <img src="images/jefff_senior_quote.GIF" alt="Jeff Senior Quote">
       <div class="spacer"></div>
-      <h3 class="subheading">AND IN MY CASE...</h3>
-      <p class="about-final">You miss 100% of the shots you do take</p>
+      <h3 class="subheading" style="color:#000;">AND IN MY CASE...</h3>
+      <p class="about-final" style="font-family:'Bebas Neue', sans-serif; color:#000; text-align:center;">You miss 100% of the shots you do take</p>
     </section>
     
     <!-- SUBMIT Section: Custom Form -->
     <section id="ugc">
-      <h2>SUBMIT</h2>
-      <h3>Submit Your Rejected Film</h3>
+      <h2 style="font-family:'Higher Jump', sans-serif; text-align:center;">SUBMIT</h2>
+      <h3 style="font-family:'Higher Jump', sans-serif; text-align:center;">Submit Your Rejected Film</h3>
       <div class="custom-form">
         <form id="rejectaForm">
           <!-- Question 1 -->
@@ -560,7 +553,7 @@
       </div>
       <h3 class="rules-header">The G** D*** RULES</h3>
       <p class="rules">
-        We only accept films that have been brutally rejected by the festivals that champion "STUDIO INDIE FILMS." Please share a screenshot or fun story of a time your film has been rejected, and once we receive that, we will consider and accept your film into the Rejecta Film Festival. Failure to meet our submission guidelines means you are likely already successful, and therefore, our jealous members cannot deal with being compared to you and your fancy-ass success, so we will NOT REVIEW your film. In fact, we'll invoice you for the extra box of tear-filled-tissues Jeff will have to buy after watching you find joy in your life! Okay?? SO just follow the G** D*** RULES!
+        We only accept films that have been brutally rejected by the festivals that champion "STUDIO INDIE FILMS." Please share a screenshot or fun story of a time your film has been rejected, and once we receive that, we will consider and accept your film into the Rejecta Film Festival. Failure to meet our submission guidelines means you are likely already successful, and therefore, our jealous members cannot deal with being compared to you and your fancy‑ass success, so we will NOT REVIEW your film. In fact, we'll invoice you for the extra box of tear‑filled‑tissues Jeff will have to buy after watching you find joy in your life! Okay?? SO just follow the G** D*** RULES!
       </p>
     </section>
   </main>
