@@ -58,7 +58,6 @@
     header {
       position: relative;
     }
-    /* Sticky Navigation */
     #sticky-nav {
       position: fixed;
       top: 0;
@@ -90,7 +89,6 @@
       width: 30px;
       margin-bottom: 4px;
     }
-    /* On mobile, show a "MENU" label and pink background for visibility */
     @media (max-width: 768px) {
       .menu-toggle {
         display: flex;
@@ -98,9 +96,10 @@
         padding: 5px;
         border-radius: 4px;
       }
+      /* Change MENU text to black */
       .menu-toggle::after {
         content: " MENU";
-        color: white;
+        color: black;
         font-size: 16px;
         vertical-align: middle;
       }
@@ -141,7 +140,6 @@
       padding: 20px;
       margin-top: 100px;
     }
-    /* Record Submissions */
     #submissions {
       text-align: center;
     }
@@ -174,12 +172,10 @@
       50% { color: #f73eff; transform: scale(1.1); }
       100% { color: #f73eff; transform: scale(1); }
     }
-    /* FILMS Section */
     #films .logo-container {
       text-align: center;
       margin: 10px auto;
     }
-    /* Order: mooch_rejecta_selection above mooch_logo */
     #mooch_rejecta_selection {
       max-width: 600px;
       height: auto;
@@ -220,7 +216,6 @@
       display: block;
       margin: 5px auto 0;
     }
-    /* Credits Block */
     .credits {
       text-align: center;
       margin-top: 10px;
@@ -249,9 +244,8 @@
     .credits p.credit-main span.rejecta {
       font-family: 'Higher Jump', sans-serif;
       color: #f73eff;
-      font-size: 0.33em; /* 3x smaller */
+      font-size: 0.66em; /* 2x bigger than previous 0.33em */
     }
-    /* COUNTDOWN Section */
     #countdown-section h2 {
       text-align: center;
       font-family: 'Higher Jump', sans-serif;
@@ -276,7 +270,6 @@
       font-size: 0.5em;
       color: #555;
     }
-    /* ABOUT Section */
     #about h2 {
       text-align: center;
       font-family: 'Higher Jump', sans-serif;
@@ -302,7 +295,6 @@
       color: #000;
       margin-top: 10px;
     }
-    /* SUBMIT Section: Custom Form */
     #ugc {
       text-align: center;
       margin-bottom: 40px;
@@ -357,7 +349,6 @@
     .custom-form input[type="submit"]:hover {
       background-color: #d633e1;
     }
-    /* The G** D*** RULES block */
     #ugc .rules-header {
       font-family: 'Higher Jump', sans-serif;
       text-align: center;
@@ -374,7 +365,6 @@
       text-align: center;
       line-height: 1.4;
     }
-    /* Footer */
     footer {
       background-color: #f0f0f0;
       padding: 20px;
@@ -388,7 +378,6 @@
       width: 15px;
       margin: 0 10px;
     }
-    /* Mobile responsiveness */
     @media (max-width: 768px) {
       #banner img {
         width: 70%;
@@ -475,7 +464,7 @@
         <h3>Based on a pathetic true story</h3>
         <p class="credit-main">
           <span class="directed" style="font-family:'Higher Jump', sans-serif; color:#000;">Directed By: JEFF RYAN</span><br>
-          <span class="rejecta" style="font-family:'Higher Jump', sans-serif; color:#f73eff; font-size:0.33em;">BIGGEST REJECTA ALIVE</span>
+          <span class="rejecta" style="font-family:'Higher Jump', sans-serif; color:#f73eff; font-size:0.66em;">BIGGEST REJECTA ALIVE</span>
         </p>
       </div>
     </section>
@@ -518,11 +507,9 @@
       <h3 style="font-family:'Higher Jump', sans-serif; text-align:center;">Submit Your Rejected Film</h3>
       <div class="custom-form">
         <form id="rejectaForm">
-          <!-- Question 1 -->
           <label for="film-title">Film Title</label>
           <input type="text" id="film-title" name="filmTitle" required>
           
-          <!-- Question 2 -->
           <label>Have you been rejected from ANY of the following?</label>
           <div class="checkbox-group">
             <label><input type="checkbox" name="festivals" value="Sundance Film Festival"> Sundance Film Festival</label>
@@ -532,14 +519,12 @@
             <label><input type="checkbox" name="festivals" value="Toronto International Film Festival"> Toronto International Film Festival</label>
           </div>
           
-          <!-- Question 3 -->
           <label>If yes, did you cry?</label>
           <div class="radio-group">
             <label><input type="radio" name="cry" value="Yes" required> Yes</label>
             <label><input type="radio" name="cry" value="Yes, a lot" required> Yes, a lot</label>
           </div>
           
-          <!-- Question 4 -->
           <label>Please confirm you've read the G** D*** rules</label>
           <div class="radio-group">
             <label><input type="radio" name="rules" value="Yes" required> Yes</label>
@@ -632,7 +617,7 @@
       updateCountdown();
       const countdownInterval = setInterval(updateCountdown, 1000);
       
-      // Custom Form Submission via AJAX (replace URL with your Apps Script endpoint)
+      // Custom Form Submission via AJAX (replace with your Apps Script endpoint)
       const rejectaForm = document.getElementById('rejectaForm');
       rejectaForm.addEventListener('submit', function(e) {
           e.preventDefault();
