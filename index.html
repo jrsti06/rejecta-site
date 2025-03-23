@@ -7,25 +7,20 @@
   
   <!-- Preload Higher Jump font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
-  
   <!-- Google Fonts: Bebas Neue for header3 (as PF Fuel/Monsteratt alternative) -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <!-- Use "Test Tiempos Text" for body text -->
   
-  <!-- Use "Test Tiempos Text" for body text (ensure it’s available on your system or host it) -->
-  
-  <!-- Inline CSS -->
   <style>
     html {
       scroll-behavior: smooth;
     }
-    
     @font-face {
       font-family: 'Higher Jump';
       src: url('https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf') format('truetype');
       font-weight: normal;
       font-style: normal;
     }
-    
     body {
       background-color: #fff;
       margin: 0;
@@ -34,35 +29,30 @@
       font-size: 18px;
       text-align: center;
     }
-    
-    /* Top spacer */
+    /* Top spacer so the content starts lower */
     .top-spacer {
       height: 50px;
     }
-    
-    /* Constrain content width for readability */
+    /* Constrain content width */
     main, section, p {
       max-width: 800px;
       margin: 0 auto;
       padding: 0 20px;
       text-align: left;
     }
-    
     /* Banner with scaled Rejecta Festival Logo */
     #banner {
       text-align: center;
     }
     #banner img {
-      width: 50%; /* Reduced size */
+      width: 50%;
       height: auto;
       display: block;
       margin: 0 auto;
     }
-    
     header {
       position: relative;
     }
-    
     /* Sticky Navigation Bar */
     #sticky-nav {
       position: fixed;
@@ -95,6 +85,15 @@
       width: 30px;
       margin-bottom: 4px;
     }
+    /* On mobile, add a "MENU" label */
+    @media (max-width: 768px) {
+      .menu-toggle::after {
+        content: " MENU";
+        color: white;
+        font-size: 16px;
+        vertical-align: middle;
+      }
+    }
     #menu {
       display: flex;
       justify-content: center;
@@ -103,12 +102,6 @@
     @media (max-width: 768px) {
       .menu-toggle {
         display: flex;
-      }
-      /* Increase the hamburger icon size on mobile */
-      .menu-toggle span {
-         height: 6px;
-         width: 35px;
-         margin-bottom: 6px;
       }
       #menu {
         display: none;
@@ -131,22 +124,21 @@
       text-decoration: none;
       transition: color 0.3s ease;
     }
+    /* Change hover color to pink (#f73eff) */
     #sticky-nav a:hover,
     #sticky-nav a:focus {
-      color: #FF5733;
+      color: #f73eff;
       outline: none;
     }
-    
     main {
       padding: 20px;
-      margin-top: 100px; /* leave space for sticky nav */
+      margin-top: 100px;
     }
     section {
       margin: 40px 0;
       border-bottom: 1px solid #ddd;
       padding-bottom: 20px;
     }
-    
     /* Record Submissions Section */
     #submissions {
       text-align: center;
@@ -162,7 +154,7 @@
     #submission-counter {
       font-family: 'Higher Jump', sans-serif;
       font-weight: bold;
-      font-size: 1.5em; /* 50% smaller initially */
+      font-size: 1.5em;
       cursor: pointer;
       margin-bottom: 10px;
       transition: transform 0.3s;
@@ -179,23 +171,28 @@
       50% { color: #f73eff; transform: scale(1.1); }
       100% { color: #f73eff; transform: scale(1); }
     }
-    
-    /* FILMS Section: Mooch Logo and related images */
+    /* FILMS Section: Adjust image order and spacing */
     #films .logo-container {
       text-align: center;
-      margin: 20px auto;
+      margin: 10px auto;
+    }
+    /* Move mooch_rejecta_selection above mooch_logo */
+    #mooch_rejecta_selection {
+      max-width: 600px;
+      height: auto;
+      display: block;
+      margin: 5px auto;
     }
     #mooch-logo {
-      max-width: 600px; /* Enlarged (approx. 4x previous size) */
+      max-width: 600px;
       height: auto;
       transition: transform 0.3s;
       display: block;
-      margin: 0 auto;
+      margin: 5px auto;
     }
     #mooch-logo:hover {
       transform: scale(1.05);
     }
-    /* Variety logo placed immediately under Mooch logo */
     .variety-link {
       text-align: center;
       margin: 10px 0;
@@ -205,34 +202,25 @@
       height: auto;
       display: inline-block;
     }
-    /* Small spacer between images */
     .small-spacer {
       height: 10px;
     }
-    /* Constrain rejected_by.gif */
     #rejected-by {
       display: block;
-      margin: 10px auto;
+      margin: 5px auto;
       max-width: 100%;
       height: auto;
-    }
-    #mooch_rejecta_selection {
-      max-width: 600px;
-      height: auto;
-      display: block;
-      margin: 10px auto;
     }
     #mooch-still {
       max-width: 600px;
       height: auto;
       display: block;
-      margin: 10px auto 0;
+      margin: 5px auto 0;
     }
-    
     /* Credits block */
     .credits {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     .credits h3 {
       font-family: 'Bebas Neue', sans-serif;
@@ -249,8 +237,7 @@
       width: 100%;
       margin-top: 10px;
     }
-    
-    /* MAP Section: Festival Guide with Spacer */
+    /* MAP Section: Festival Guide */
     #map h2 {
       text-align: center;
       font-family: 'Higher Jump', sans-serif;
@@ -269,13 +256,11 @@
       color: #555;
       text-align: center;
     }
-    
-    /* COUNTDOWN Section: Rejecta Film Festival Countdown */
+    /* COUNTDOWN Section */
     #countdown-section h2 {
       text-align: center;
       font-family: 'Higher Jump', sans-serif;
     }
-    /* Countdown container styling */
     #countdown {
       text-align: center;
       margin-top: 20px;
@@ -283,7 +268,7 @@
     .countdown-item {
       display: inline-block;
       background: #eee;
-      border: 4px solid #f73eff; /* 2x thicker */
+      border: 4px solid #f73eff;
       border-radius: 8px;
       padding: 10px 15px;
       margin: 5px;
@@ -296,7 +281,6 @@
       font-size: 0.5em;
       color: #555;
     }
-    
     /* ABOUT Section */
     #about h2 {
       text-align: center;
@@ -316,25 +300,51 @@
       color: #f73eff;
       margin: 10px 0;
     }
-    
-    /* SUBMIT Section: Google Form Embed */
+    /* Remove extra words in subheading */
+    /* SUBMIT Section: Custom Form */
     #ugc {
       text-align: center;
+      margin-bottom: 40px;
     }
     #ugc h2, #ugc h3 {
       font-family: 'Higher Jump', sans-serif;
     }
-    .form-container {
-      display: inline-block;
-      max-width: 640px;
+    .custom-form {
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .custom-form label {
+      font-weight: bold;
+      margin: 10px 0 5px;
+      display: block;
+    }
+    .custom-form input[type="text"],
+    .custom-form .checkbox-group {
       width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
     }
-    .form-container iframe {
-      width: 640px;
-      height: 1101px;
-      border: 0;
+    .custom-form .checkbox-group label {
+      font-weight: normal;
+      margin-right: 15px;
     }
-    /* The G** D*** RULES block */
+    .custom-form input[type="submit"] {
+      background-color: #f73eff;
+      border: none;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .custom-form input[type="submit"]:hover {
+      background-color: #d633e1;
+    }
+    /* The G** D*** RULES block styling */
     #ugc .rules-header {
       font-family: 'Higher Jump', sans-serif;
       text-align: center;
@@ -342,13 +352,15 @@
       font-size: 1.5em;
     }
     #ugc .rules {
-      font-style: italic;
+      background-color: #fff0f9;
+      padding: 15px;
+      border-radius: 8px;
+      font-size: 0.8em;
+      color: #555;
       margin-top: 10px;
       text-align: center;
-      font-size: 0.8em; /* Fine print */
-      color: #555;
+      line-height: 1.4;
     }
-    
     /* Footer */
     footer {
       background-color: #f0f0f0;
@@ -360,22 +372,19 @@
       margin-bottom: 10px;
     }
     .footer-social img {
-      width: 15px; /* 3x smaller than previous size */
+      width: 15px;
       margin: 0 10px;
     }
     
-    /* Mobile responsiveness */
+    /* Mobile responsiveness adjustments */
     @media (max-width: 768px) {
-      /* Adjust banner logo size */
       #banner img {
         width: 70%;
       }
-      /* Navigation links */
       #sticky-nav a {
         padding: 8px 15px;
         font-size: 14px;
       }
-      /* Reduce font size in countdown items */
       .countdown-item {
         font-size: 1.2em;
         padding: 8px 10px;
@@ -383,12 +392,11 @@
       .countdown-item .label {
         font-size: 0.4em;
       }
-      /* Make form container iframe responsive */
       .form-container iframe {
         width: 100%;
         height: auto;
       }
-      /* Ensure images scale on mobile */
+      /* Ensure images scale */
       #mooch-logo,
       #mooch_rejecta_selection,
       #mooch-still,
@@ -417,28 +425,30 @@
         <span></span>
       </div>
       <div id="menu" class="menu">
-        <a href="#banner">Home</a>
-        <a href="#films">FILMS</a>
-        <a href="#map">MAP</a>
-        <a href="#about">ABOUT</a>
-        <a href="#ugc">SUBMIT</a>
+        <a href="#banner" class="nav-link">Home</a>
+        <a href="#films" class="nav-link">FILMS</a>
+        <a href="#map" class="nav-link">MAP</a>
+        <a href="#about" class="nav-link">ABOUT</a>
+        <a href="#ugc" class="nav-link">SUBMIT</a>
       </div>
     </nav>
   </header>
   
   <main>
-    <!-- Record Submissions Section (centered) -->
+    <!-- Record Submissions Section -->
     <section id="submissions">
       <h2>RECORD HIGH SUBMISSIONS</h2>
       <p>We've received a record number of submissions!</p>
       <div id="submission-counter">CLICK TO REVEAL</div>
     </section>
     
-    <!-- FILMS Section: Mooch Logo and Related Images -->
+    <!-- FILMS Section: Custom Image Order and Credits -->
     <section id="films">
       <div class="logo-container">
+        <!-- Moved mooch_rejecta_selection above the mooch logo -->
+        <img id="mooch_rejecta_selection" src="images/mooch_rejecta_selection.png" alt="Mooch Rejecta Selection">
+        <div class="small-spacer"></div>
         <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
-        <!-- Variety logo placed immediately under Mooch logo -->
         <div class="variety-link">
           <a href="https://variety.com/2024/film/news/jeff-ryan-scott-cohen-katerina-tennenbaum-geneva-carr-will-chase-crime-comedy-mooch-1235891590/" target="_blank">
             <img src="images/variety.png" alt="Variety">
@@ -446,8 +456,6 @@
         </div>
         <div class="small-spacer"></div>
         <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
-        <div class="small-spacer"></div>
-        <img id="mooch_rejecta_selection" src="images/mooch_rejecta_selection.png" alt="Mooch Rejecta Selection">
         <div class="small-spacer"></div>
         <img id="mooch-still" src="images/mooch_still.jpg" alt="Mooch Still">
       </div>
@@ -465,7 +473,7 @@
       </div>
     </section>
     
-    <!-- COUNTDOWN Section: Rejecta Film Festival Countdown -->
+    <!-- COUNTDOWN Section -->
     <section id="countdown-section">
       <h2>Rejecta Film Festival Countdown</h2>
       <div id="countdown">
@@ -476,7 +484,7 @@
       </div>
     </section>
     
-    <!-- MAP Section: Festival Guide -->
+    <!-- MAP Section -->
     <section id="map">
       <h2>FESTIVAL GUIDE</h2>
       <img src="images/fesstival_guide.png" alt="Festival Guide">
@@ -493,22 +501,45 @@
       </p>
       <img src="images/jefff_senior_quote.GIF" alt="Jeff Senior Quote">
       <div class="spacer"></div>
-      <h3 class="subheading">and in my case, you also miss 100 percent of the shots <b><u>YOU DO TAKE</u></b> sometimes too...</h3>
+      <h3 class="subheading">and in my case, you also miss 100 percent of the shots <b><u>YOU DO TAKE</u></b></h3>
     </section>
     
-    <!-- SUBMIT Section: Google Form Embed -->
+    <!-- SUBMIT Section: Custom Form -->
     <section id="ugc">
       <h2>SUBMIT</h2>
       <h3>Submit Your Rejected Film</h3>
-      <div class="form-container">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSewHNUmnCXQJpYphp2t872Qd40g7cy-LkSgPenAX8eOVW4mMQ/viewform?embedded=true" 
-                width="640" 
-                height="1101" 
-                frameborder="0" 
-                marginheight="0" 
-                marginwidth="0">
-          Loading…
-        </iframe>
+      <div class="custom-form">
+        <form id="rejectaForm">
+          <!-- Question 1 -->
+          <label for="film-title">Film Title</label>
+          <input type="text" id="film-title" name="filmTitle" required>
+          
+          <!-- Question 2 -->
+          <label>Have you been rejected from ANY of the following?</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="festivals" value="Sundance Film Festival"> Sundance Film Festival</label>
+            <label><input type="checkbox" name="festivals" value="Cannes Film Festival"> Cannes Film Festival</label>
+            <label><input type="checkbox" name="festivals" value="SXSW Film Festival"> SXSW Film Festival</label>
+            <label><input type="checkbox" name="festivals" value="Tribeca Film Festival"> Tribeca Film Festival</label>
+            <label><input type="checkbox" name="festivals" value="Toronto International Film Festival"> Toronto International Film Festival</label>
+          </div>
+          
+          <!-- Question 3 -->
+          <label>If yes, did you cry?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="cry" value="Yes" required> Yes</label>
+            <label><input type="radio" name="cry" value="Yes, a lot" required> Yes, a lot</label>
+          </div>
+          
+          <!-- Question 4 -->
+          <label>Please confirm you've read the G** D*** rules</label>
+          <div class="radio-group">
+            <label><input type="radio" name="rules" value="Yes" required> Yes</label>
+            <label><input type="radio" name="rules" value="Yes, twice" required> Yes, twice</label>
+          </div>
+          
+          <input type="submit" value="Submit">
+        </form>
       </div>
       <h3 class="rules-header">The G** D*** RULES</h3>
       <p class="rules">
@@ -517,7 +548,7 @@
     </section>
   </main>
   
-  <!-- Footer with Social Media Icons and Copyright -->
+  <!-- Footer -->
   <footer>
     <div class="footer-social">
       <a href="https://www.instagram.com/rejectafilmfest/" target="_blank">
@@ -530,7 +561,7 @@
     <div>© Copyright 2025</div>
   </footer>
   
-  <!-- Inline JavaScript for Interactivity -->
+  <!-- JavaScript for Interactivity and Form Submission -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Navigation Toggle
@@ -541,8 +572,18 @@
           menuToggle.setAttribute('aria-expanded', !isExpanded);
           menu.classList.toggle('active');
       });
+      // Auto-collapse menu on mobile when a link is clicked
+      const navLinks = document.querySelectorAll('.nav-link');
+      navLinks.forEach(link => {
+          link.addEventListener('click', () => {
+            if(window.innerWidth <= 768) {
+              menu.classList.remove('active');
+              menuToggle.setAttribute('aria-expanded', 'false');
+            }
+          });
+      });
       
-      // Mooch Logo Hover Effect: switch image on hover
+      // Mooch Logo Hover Effect
       const moochLogo = document.getElementById('mooch-logo');
       if(moochLogo) {
         moochLogo.addEventListener('mouseover', function() {
@@ -562,7 +603,7 @@
         }
       });
       
-      // MOOCH Premiere Countdown Timer
+      // Countdown Timer
       function updateCountdown() {
         const now = new Date().getTime();
         const distance = premiereDate - now;
@@ -583,10 +624,34 @@
         document.getElementById('minutes').textContent = minutes;
         document.getElementById('seconds').textContent = seconds;
       }
-      
       const premiereDate = new Date("June 7, 2025 00:00:00").getTime();
       updateCountdown();
       const countdownInterval = setInterval(updateCountdown, 1000);
+      
+      // Custom Form Submission (AJAX to Google Sheets via Apps Script)
+      const rejectaForm = document.getElementById('rejectaForm');
+      rejectaForm.addEventListener('submit', function(e) {
+          e.preventDefault();
+          // Gather form data
+          const formData = new FormData(rejectaForm);
+          // Create an object for the data
+          const data = {};
+          formData.forEach((value, key) => { data[key] = value; });
+          // For checkboxes, get all selected values (if applicable)
+          // (Adjust if needed)
+          
+          // Send the data via fetch to a Google Apps Script URL (replace with your URL)
+          fetch("https://script.google.com/macros/s/your-script-id/exec", {
+              method: "POST",
+              mode: "no-cors",
+              body: JSON.stringify(data)
+          }).then(() => {
+              alert("Submission successful!");
+              rejectaForm.reset();
+          }).catch((error) => {
+              console.error("Error!", error.message);
+          });
+      });
     });
   </script>
 </body>
