@@ -7,9 +7,9 @@
   
   <!-- Preload Higher Jump font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
-  <!-- Google Fonts: Bebas Neue for header3 (as PF Fuel/Monsteratt alternative) -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-  <!-- Use "Test Tiempos Text" for body text -->
+  
+  <!-- Google Fonts: Bebas Neue for header3 and Roboto for body text -->
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
     html {
@@ -22,27 +22,30 @@
       font-style: normal;
     }
     body {
-      background-color: #fff;
+      /* New fresh background gradient and using Roboto for body text */
+      background: linear-gradient(135deg, #fff, #f9f9f9);
       margin: 0;
       padding: 0;
-      font-family: "Test Tiempos Text", sans-serif;
+      font-family: 'Roboto', sans-serif;
       font-size: 18px;
+      color: #333;
       text-align: center;
     }
-    /* Top spacer so the content starts lower */
-    .top-spacer {
-      height: 50px;
-    }
-    /* Constrain content width */
+    /* Constrain content width for readability */
     main, section, p {
       max-width: 800px;
       margin: 0 auto;
       padding: 0 20px;
       text-align: left;
     }
+    /* Top spacer */
+    .top-spacer {
+      height: 50px;
+    }
     /* Banner with scaled Rejecta Festival Logo */
     #banner {
       text-align: center;
+      margin-bottom: 20px;
     }
     #banner img {
       width: 50%;
@@ -63,7 +66,7 @@
       z-index: 1002;
       padding: 10px 0;
       font-family: 'Higher Jump', sans-serif;
-      box-shadow: 0 4px 2px -2px gray;
+      box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2);
       text-align: center;
     }
     .menu-toggle {
@@ -85,7 +88,7 @@
       width: 30px;
       margin-bottom: 4px;
     }
-    /* On mobile, add a "MENU" label */
+    /* On mobile, show a "MENU" label */
     @media (max-width: 768px) {
       .menu-toggle::after {
         content: " MENU";
@@ -124,7 +127,7 @@
       text-decoration: none;
       transition: color 0.3s ease;
     }
-    /* Change hover color to pink (#f73eff) */
+    /* Hover color changed to our pink (#f73eff) */
     #sticky-nav a:hover,
     #sticky-nav a:focus {
       color: #f73eff;
@@ -136,8 +139,10 @@
     }
     section {
       margin: 40px 0;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 20px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #fff;
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
     }
     /* Record Submissions Section */
     #submissions {
@@ -145,6 +150,7 @@
     }
     #submissions h2 {
       font-family: 'Higher Jump', sans-serif;
+      margin-bottom: 10px;
     }
     #submissions p {
       font-style: italic;
@@ -171,12 +177,12 @@
       50% { color: #f73eff; transform: scale(1.1); }
       100% { color: #f73eff; transform: scale(1); }
     }
-    /* FILMS Section: Adjust image order and spacing */
+    /* FILMS Section: Images & Ordering */
     #films .logo-container {
       text-align: center;
       margin: 10px auto;
     }
-    /* Move mooch_rejecta_selection above mooch_logo */
+    /* Place mooch_rejecta_selection above the mooch logo */
     #mooch_rejecta_selection {
       max-width: 600px;
       height: auto;
@@ -205,6 +211,7 @@
     .small-spacer {
       height: 10px;
     }
+    /* Ensure rejected_by.gif scales */
     #rejected-by {
       display: block;
       margin: 5px auto;
@@ -217,7 +224,7 @@
       display: block;
       margin: 5px auto 0;
     }
-    /* Credits block */
+    /* Credits block: center all text lines */
     .credits {
       text-align: center;
       margin-top: 10px;
@@ -232,29 +239,8 @@
       margin: 10px 0;
     }
     .credits .info {
-      text-align: left;
-      display: inline-block;
-      width: 100%;
+      text-align: center;
       margin-top: 10px;
-    }
-    /* MAP Section: Festival Guide */
-    #map h2 {
-      text-align: center;
-      font-family: 'Higher Jump', sans-serif;
-    }
-    #map img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-    .spacer {
-      height: 20px;
-    }
-    #map p {
-      font-style: italic;
-      color: #555;
-      text-align: center;
     }
     /* COUNTDOWN Section */
     #countdown-section h2 {
@@ -300,8 +286,8 @@
       color: #f73eff;
       margin: 10px 0;
     }
-    /* Remove extra words in subheading */
-    /* SUBMIT Section: Custom Form */
+    /* Adjusted ending text for subheading */
+    /* SUBMIT Section: Custom Form (replacing Google Form) */
     #ugc {
       text-align: center;
       margin-bottom: 40px;
@@ -313,14 +299,18 @@
       max-width: 600px;
       margin: 0 auto;
       text-align: left;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px;
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     .custom-form label {
       font-weight: bold;
       margin: 10px 0 5px;
       display: block;
     }
-    .custom-form input[type="text"],
-    .custom-form .checkbox-group {
+    .custom-form input[type="text"] {
       width: 100%;
       padding: 8px;
       margin-bottom: 10px;
@@ -328,7 +318,16 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-    .custom-form .checkbox-group label {
+    /* Style checkbox and radio groups consistently */
+    .custom-form .checkbox-group,
+    .custom-form .radio-group {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    .custom-form .checkbox-group label,
+    .custom-form .radio-group label {
       font-weight: normal;
       margin-right: 15px;
     }
@@ -396,7 +395,7 @@
         width: 100%;
         height: auto;
       }
-      /* Ensure images scale */
+      /* Ensure images scale on mobile */
       #mooch-logo,
       #mooch_rejecta_selection,
       #mooch-still,
@@ -405,13 +404,17 @@
         max-width: 90%;
         height: auto;
       }
+      /* Adjust custom form fields on mobile */
+      .custom-form {
+        padding: 10px;
+      }
     }
   </style>
 </head>
 <body>
   <div class="top-spacer"></div>
   
-  <!-- Banner with Rejecta Festival Logo -->
+  <!-- Banner -->
   <div id="banner">
     <img src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
   </div>
@@ -442,10 +445,10 @@
       <div id="submission-counter">CLICK TO REVEAL</div>
     </section>
     
-    <!-- FILMS Section: Custom Image Order and Credits -->
+    <!-- FILMS Section -->
     <section id="films">
       <div class="logo-container">
-        <!-- Moved mooch_rejecta_selection above the mooch logo -->
+        <!-- mooch_rejecta_selection above the mooch logo -->
         <img id="mooch_rejecta_selection" src="images/mooch_rejecta_selection.png" alt="Mooch Rejecta Selection">
         <div class="small-spacer"></div>
         <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
@@ -572,17 +575,16 @@
           menuToggle.setAttribute('aria-expanded', !isExpanded);
           menu.classList.toggle('active');
       });
-      // Auto-collapse menu on mobile when a link is clicked
+      // Auto-collapse mobile menu when a link is clicked
       const navLinks = document.querySelectorAll('.nav-link');
       navLinks.forEach(link => {
           link.addEventListener('click', () => {
-            if(window.innerWidth <= 768) {
-              menu.classList.remove('active');
-              menuToggle.setAttribute('aria-expanded', 'false');
-            }
+              if(window.innerWidth <= 768) {
+                  menu.classList.remove('active');
+                  menuToggle.setAttribute('aria-expanded', 'false');
+              }
           });
       });
-      
       // Mooch Logo Hover Effect
       const moochLogo = document.getElementById('mooch-logo');
       if(moochLogo) {
@@ -593,54 +595,46 @@
           moochLogo.src = "images/mooch_logo_black.png";
         });
       }
-      
-      // Record Submissions: Toggle text on click
+      // Record Submissions Toggle
       const submissionCounter = document.getElementById('submission-counter');
       submissionCounter.addEventListener('click', function() {
-        if (submissionCounter.textContent.trim() === "CLICK TO REVEAL") {
-          submissionCounter.textContent = "ONE";
-          submissionCounter.classList.add("revealed");
-        }
+          if (submissionCounter.textContent.trim() === "CLICK TO REVEAL") {
+              submissionCounter.textContent = "ONE";
+              submissionCounter.classList.add("revealed");
+          }
       });
-      
       // Countdown Timer
       function updateCountdown() {
-        const now = new Date().getTime();
-        const distance = premiereDate - now;
-        if(distance < 0) {
-          clearInterval(countdownInterval);
-          document.getElementById('days').textContent = "00";
-          document.getElementById('hours').textContent = "00";
-          document.getElementById('minutes').textContent = "00";
-          document.getElementById('seconds').textContent = "00";
-          return;
-        }
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        document.getElementById('days').textContent = days;
-        document.getElementById('hours').textContent = hours;
-        document.getElementById('minutes').textContent = minutes;
-        document.getElementById('seconds').textContent = seconds;
+          const now = new Date().getTime();
+          const distance = premiereDate - now;
+          if(distance < 0) {
+              clearInterval(countdownInterval);
+              document.getElementById('days').textContent = "00";
+              document.getElementById('hours').textContent = "00";
+              document.getElementById('minutes').textContent = "00";
+              document.getElementById('seconds').textContent = "00";
+              return;
+          }
+          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+          document.getElementById('days').textContent = days;
+          document.getElementById('hours').textContent = hours;
+          document.getElementById('minutes').textContent = minutes;
+          document.getElementById('seconds').textContent = seconds;
       }
       const premiereDate = new Date("June 7, 2025 00:00:00").getTime();
       updateCountdown();
       const countdownInterval = setInterval(updateCountdown, 1000);
       
-      // Custom Form Submission (AJAX to Google Sheets via Apps Script)
+      // Custom Form Submission via AJAX (replace the URL with your Apps Script endpoint)
       const rejectaForm = document.getElementById('rejectaForm');
       rejectaForm.addEventListener('submit', function(e) {
           e.preventDefault();
-          // Gather form data
           const formData = new FormData(rejectaForm);
-          // Create an object for the data
           const data = {};
           formData.forEach((value, key) => { data[key] = value; });
-          // For checkboxes, get all selected values (if applicable)
-          // (Adjust if needed)
-          
-          // Send the data via fetch to a Google Apps Script URL (replace with your URL)
           fetch("https://script.google.com/macros/s/your-script-id/exec", {
               method: "POST",
               mode: "no-cors",
