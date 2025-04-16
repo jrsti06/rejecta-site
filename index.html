@@ -4,12 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rejecta Film Festival</title>
-  
+
   <!-- Preload Higher Jump font -->
   <link rel="preload" href="https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf" as="font" type="font/ttf" crossorigin>
-  <!-- Google Fonts: Bebas Neue for header3 and Roboto for body text -->
+  <!-- Google Fonts: Bebas Neue for headers and Roboto for body text -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  
+
   <style>
     html { scroll-behavior: smooth; }
     @font-face {
@@ -33,15 +33,19 @@
       border-radius: 8px;
       box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
     }
+
+    /* Banner */
     #banner { text-align: center; margin-bottom: 20px; }
     #banner img { width: 50%; height: auto; display: block; margin: 0 auto; }
 
+    /* Sticky Nav */
     header { position: relative; }
     #sticky-nav {
       position: fixed; top: 0; left: 0; width: 100%;
       background-color: #000; z-index: 1002;
       padding: 10px 0; font-family: 'Higher Jump', sans-serif;
-      box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2); text-align: center;
+      box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2);
+      text-align: center;
     }
     .menu-toggle {
       display: none; cursor: pointer;
@@ -54,6 +58,7 @@
       background-color: white; display: block;
       height: 4px; width: 30px; margin-bottom: 4px;
     }
+    #menu { display: flex; justify-content: center; z-index: 1000; }
     @media (max-width: 768px) {
       .menu-toggle { display: flex; }
       .menu-toggle::after {
@@ -65,25 +70,23 @@
       }
       #menu.active { display: flex; }
     }
-    #menu { display: flex; justify-content: center; z-index: 1000; }
     #sticky-nav a {
       color: #FFF; padding: 10px 20px; font-size: 16px;
       text-decoration: none; transition: color 0.3s ease;
     }
-    #sticky-nav a:hover, #sticky-nav a:focus { color: #f73eff; outline: none; }
+    #sticky-nav a:hover, #sticky-nav a:focus {
+      color: #f73eff; outline: none;
+    }
 
     main { padding: 20px; margin-top: 100px; }
 
-    /* SUBMISSIONS */
+    /* Record Submissions */
     #submissions { text-align: center; }
     #submissions h2 {
       font-family: 'Higher Jump', sans-serif; margin-bottom: 10px;
     }
-    /* ensure this line is centered */
     #submissions p {
-      font-style: italic;
-      margin: 10px 0;
-      text-align: center;
+      font-style: italic; margin: 10px 0; text-align: center;
     }
     #submission-counter {
       font-family: 'Higher Jump', sans-serif; font-weight: bold;
@@ -99,7 +102,7 @@
       50%   { color: #f73eff; transform: scale(1.1); }
     }
 
-    /* FILMS */
+    /* Films Section & Posters */
     #films .logo-container { text-align: center; margin: 10px auto; }
     #mooch_rejecta_selection,
     #mooch-logo,
@@ -112,22 +115,26 @@
     }
     .variety-link { margin: 10px 0; }
     .small-spacer { height: 10px; }
+
+    /* Credits */
     .credits { text-align: center; margin-top: 10px; }
     .credits h3 {
       font-family: 'Bebas Neue', sans-serif; font-size: 2em;
       margin: 10px 0; color: #000;
     }
     .credits p.credit-main {
-      text-align: center; margin: 10px 0; font-size: 1.2em; color: #000;
+      text-align: center; margin: 10px 0;
+      font-size: 1.2em; color: #000;
     }
     .credits p.credit-main span.directed {
       font-family: 'Higher Jump', sans-serif; color: #000;
     }
     .credits p.credit-main span.rejecta {
-      font-family: 'Higher Jump', sans-serif; color: #f73eff; font-size: 0.66em;
+      font-family: 'Higher Jump', sans-serif; color: #f73eff;
+      font-size: 0.66em;
     }
 
-    /* COUNTDOWN */
+    /* Countdown */
     #countdown-section h2 {
       text-align: center; font-family: 'Higher Jump', sans-serif;
     }
@@ -140,7 +147,7 @@
     }
     .countdown-item .label { display: block; font-size: 0.5em; color: #555; }
 
-    /* MAP */
+    /* Map Section */
     #map h2 {
       font-family: 'Higher Jump', sans-serif; text-align: center;
     }
@@ -150,8 +157,10 @@
       text-align: center; margin-top: 40px;
     }
 
-    /* ABOUT */
-    #about h2 { text-align: center; font-family: 'Higher Jump', sans-serif; }
+    /* About Section */
+    #about h2 {
+      text-align: center; font-family: 'Higher Jump', sans-serif;
+    }
     #about p { margin-bottom: 20px; }
     #about img { display: block; margin: 0 auto; }
     .subheading {
@@ -163,7 +172,7 @@
       font-size: 1.8em; color: #000; margin-top: 10px;
     }
 
-    /* SUBMIT */
+    /* Submit Section */
     #ugc { text-align: center; margin-bottom: 40px; }
     #ugc h2, #ugc h3 {
       font-family: 'Higher Jump', sans-serif; text-align: center;
@@ -207,11 +216,14 @@
       text-align: center; line-height: 1.4;
     }
 
+    /* Footer */
     footer {
-      background-color: #f0f0f0; padding: 20px; text-align: center; font-size: 16px;
+      background-color: #f0f0f0; padding: 20px;
+      text-align: center; font-size: 16px;
     }
     .footer-social img { width: 15px; margin: 0 10px; }
 
+    /* Mobile adjustments */
     @media (max-width: 768px) {
       #banner img { width: 70%; }
       #sticky-nav a { padding: 8px 15px; font-size: 14px; }
@@ -233,8 +245,13 @@
 </head>
 <body>
   <div class="top-spacer"></div>
-  <div id="banner"><img src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo"></div>
 
+  <!-- Banner -->
+  <div id="banner">
+    <img src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
+  </div>
+
+  <!-- Sticky Navigation -->
   <header>
     <nav id="sticky-nav">
       <div id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
@@ -251,12 +268,14 @@
   </header>
 
   <main>
+    <!-- Record Submissions -->
     <section id="submissions">
       <h2>RECORD HIGH SUBMISSIONS</h2>
       <p>We've received a record number of submissions!</p>
       <div id="submission-counter">CLICK TO REVEAL</div>
     </section>
 
+    <!-- Films & Posters -->
     <section id="films">
       <div class="logo-container">
         <img id="mooch_rejecta_selection" src="images/mooch_rejecta_selection.png" alt="Mooch Rejecta Selection">
@@ -271,6 +290,7 @@
         <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
         <div class="small-spacer"></div>
         <img id="mooch-still" src="images/mooch_still.jpg" alt="Mooch Still">
+        <!-- New Posters -->
         <img id="poster1" src="images/mooch teaser art.jpg" alt="Mooch Teaser Art">
         <img id="poster2" src="images/mooch graduate.png" alt="Mooch Graduate">
       </div>
@@ -283,10 +303,157 @@
       </div>
     </section>
 
-    <!-- remaining sections unchanged… -->
+    <!-- Countdown -->
+    <section id="countdown-section">
+      <h2>Rejecta Film Festival Countdown</h2>
+      <div id="countdown">
+        <div class="countdown-item"><span id="days">00</span><span class="label">Days</span></div>
+        <div class="countdown-item"><span id="hours">00</span><span class="label">Hours</span></div>
+        <div class="countdown-item"><span id="minutes">00</span><span class="label">Minutes</span></div>
+        <div class="countdown-item"><span id="seconds">00</span><span class="label">Seconds</span></div>
+      </div>
+    </section>
 
+    <!-- Festival Guide -->
+    <section id="map">
+      <h2>FESTIVAL GUIDE</h2>
+      <img src="images/fesstival_guide.png" alt="Festival Guide">
+      <div class="spacer"></div>
+      <p>ACROSS FROM THAT OTHER FESTIVAL</p>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>ABOUT</h2>
+      <h3 class="subheading">You miss 100% of the shots you don't take...</h3>
+      <p>
+        Jeff Ryan is a filmmaker hailing from the greatest state in America: New Jersey. Despite his lofty dreams of becoming a successful filmmaker, he, like so many others on this circus ride, found himself facing the sweet smell of rejection on a daily basis. Earlier this year, Jeff found himself falling to his knees and crying into an unwashed pillow, after receiving his ninth rejection from SXSW. It was then that Jeff decided to create a festival of his own. After a record number of submissions in its inaugural year, Jeff feels confident that mortgaging his home and personal assets to make this dream a reality was a smart decision. Time will tell, but Jeff believes he can double his submission count by 2026 if the stars continue to align.
+      </p>
+      <img src="images/jefff_senior_quote.GIF" alt="Jeff Senior Quote">
+      <div class="spacer"></div>
+      <h3 class="subheading">AND IN MY CASE...</h3>
+      <p class="about-final">You miss 100% of the shots you do take</p>
+    </section>
+
+    <!-- Submit Form -->
+    <section id="ugc">
+      <h2>SUBMIT</h2>
+      <h3>Submit Your Rejected Film</h3>
+      <div class="custom-form">
+        <form id="rejectaForm">
+          <label for="film-title">Film Title</label>
+          <input type="text" id="film-title" name="filmTitle" required>
+
+          <label>Have you been rejected from ANY of the following?</label>
+          <div class="checkbox-group">
+            <label><input type="checkbox" name="festivals" value="Sundance Film Festival"> Sundance Film Festival</label>
+            <label><input type="checkbox" name="festivals" value="Cannes Film Festival"> Cannes Film Festival</label>
+            <label><input type="checkbox" name="festivals" value="SXSW Film Festival"> SXSW Film Festival</label>
+            <label><input type="checkbox" name="festivals" value="Tribeca Film Festival"> Tribeca Film Festival</label>
+            <label><input type="checkbox" name="festivals" value="Toronto International Film Festival"> Toronto International Film Festival</label>
+          </div>
+
+          <label>If yes, did you cry?</label>
+          <div class="radio-group">
+            <label><input type="radio" name="cry" value="Yes" required> Yes</label>
+            <label><input type="radio" name="cry" value="Yes, a lot" required> Yes, a lot</label>
+          </div>
+
+          <label>Please confirm you've read the G** D*** rules</label>
+          <div class="radio-group">
+            <label><input type="radio" name="rules" value="Yes" required> Yes</label>
+            <label><input type="radio" name="rules" value="Yes, twice" required> Yes, twice</label>
+          </div>
+
+          <input type="submit" value="Submit">
+        </form>
+      </div>
+      <h3 class="rules-header">The G** D*** RULES</h3>
+      <p class="rules">
+        We only accept films that have been brutally rejected by the festivals that champion "STUDIO INDIE FILMS." Please share a screenshot or fun story of a time your film has been rejected, and once we receive that, we will consider and accept your film into the Rejecta Film Festival. Failure to meet our submission guidelines means you are likely already successful, and therefore, our jealous members cannot deal with being compared to you and your fancy‑ass success, so we will NOT REVIEW your film. In fact, we'll invoice you for the extra box of tear‑filled‑tissues Jeff will have to buy after watching you find joy in your life! Okay?? SO just follow the G** D*** RULES!
+      </p>
+    </section>
   </main>
 
-  <!-- footer & scripts unchanged… -->
+  <!-- Footer -->
+  <footer>
+    <div class="footer-social">
+      <a href="https://www.instagram.com/rejectafilmfest/" target="_blank">
+        <img src="images/insta_logo_black.png" alt="Instagram">
+      </a>
+      <a href="https://x.com/rejectafilmfest" target="_blank">
+        <img src="images/x_logo_black.png" alt="X/Twitter">
+      </a>
+    </div>
+    <div>© Copyright 2025</div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Nav toggle
+      const toggle = document.getElementById('menu-toggle');
+      const menu = document.getElementById('menu');
+      toggle.addEventListener('click', () => {
+        const exp = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !exp);
+        menu.classList.toggle('active');
+      });
+      // Auto-collapse
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            menu.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+      // Logo hover
+      const ml = document.getElementById('mooch-logo');
+      if (ml) {
+        ml.addEventListener('mouseover', () => ml.src = 'images/mooch_logo_pink.png');
+        ml.addEventListener('mouseout', () => ml.src = 'images/mooch_logo_black.png');
+      }
+      // Reveal counter
+      const sc = document.getElementById('submission-counter');
+      sc.addEventListener('click', () => {
+        if (sc.textContent.trim() === 'CLICK TO REVEAL') {
+          sc.textContent = 'ONE';
+          sc.classList.add('revealed');
+        }
+      });
+      // Countdown
+      const premiere = new Date('June 7, 2025 00:00:00').getTime();
+      function updateCountdown() {
+        const now = Date.now(), dist = premiere - now;
+        if (dist < 0) {
+          clearInterval(iv);
+          ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent = '00');
+          return;
+        }
+        const d = Math.floor(dist / 86400000),
+              h = Math.floor((dist % 86400000) / 3600000),
+              m = Math.floor((dist % 3600000) / 60000),
+              s = Math.floor((dist % 60000) / 1000);
+        document.getElementById('days').textContent    = d;
+        document.getElementById('hours').textContent   = h;
+        document.getElementById('minutes').textContent = m;
+        document.getElementById('seconds').textContent = s;
+      }
+      updateCountdown();
+      const iv = setInterval(updateCountdown, 1000);
+      // Form submit
+      document.getElementById('rejectaForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const fd = new FormData(e.target), obj = {};
+        fd.forEach((v,k) => obj[k] = v);
+        fetch('https://script.google.com/macros/s/your-script-id/exec', {
+          method: 'POST', mode: 'no-cors', body: JSON.stringify(obj)
+        }).then(() => {
+          alert('Submission successful!');
+          e.target.reset();
+        }).catch(err => console.error(err));
+      });
+    });
+  </script>
 </body>
 </html>
