@@ -11,33 +11,21 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   
   <style>
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     @font-face {
       font-family: 'Higher Jump';
       src: url('https://static1.squarespace.com/static/5786a4224402438f374c591b/t/67029a28d5316118aa3a3a4a/1728223785969/Higher+Jump.ttf') format('truetype');
-      font-weight: normal;
-      font-style: normal;
     }
     body {
       background-color: #fff;
-      margin: 0;
-      padding: 0;
+      margin: 0; padding: 0;
       font-family: 'Roboto', sans-serif;
-      font-size: 18px;
-      color: #333;
-      text-align: center;
+      font-size: 18px; color: #333; text-align: center;
     }
     main, section, p {
-      max-width: 800px;
-      margin: 0 auto;
-      padding: 0 20px;
-      text-align: left;
+      max-width: 800px; margin: 0 auto; padding: 0 20px; text-align: left;
     }
-    .top-spacer {
-      height: 50px;
-    }
+    .top-spacer { height: 50px; }
     section {
       background-color: #fff;
       margin: 40px 0;
@@ -45,384 +33,205 @@
       border-radius: 8px;
       box-shadow: 0px 2px 10px rgba(0,0,0,0.05);
     }
-    #banner {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    #banner img {
-      width: 50%;
-      height: auto;
-      display: block;
-      margin: 0 auto;
-    }
-    header {
-      position: relative;
-    }
+    #banner { text-align: center; margin-bottom: 20px; }
+    #banner img { width: 50%; height: auto; display: block; margin: 0 auto; }
+    header { position: relative; }
     #sticky-nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #000;
-      z-index: 1002;
-      padding: 10px 0;
-      font-family: 'Higher Jump', sans-serif;
-      box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2);
-      text-align: center;
+      position: fixed; top: 0; left: 0; width: 100%;
+      background-color: #000; z-index: 1002;
+      padding: 10px 0; font-family: 'Higher Jump', sans-serif;
+      box-shadow: 0 4px 2px -2px rgba(0,0,0,0.2); text-align: center;
     }
     .menu-toggle {
-      display: none;
-      cursor: pointer;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 25px;
-      width: 30px;
-      z-index: 1003;
-      position: absolute;
-      top: 15px;
-      left: 20px;
+      display: none; cursor: pointer;
+      flex-direction: column; justify-content: space-between;
+      height: 25px; width: 30px;
+      position: absolute; top: 15px; left: 20px;
+      background-color: #f73eff; padding: 5px; border-radius: 4px;
     }
     .menu-toggle span {
-      background-color: white;
-      display: block;
-      height: 4px;
-      width: 30px;
-      margin-bottom: 4px;
+      background-color: white; display: block;
+      height: 4px; width: 30px; margin-bottom: 4px;
     }
     @media (max-width: 768px) {
-      .menu-toggle {
-        display: flex;
-        background-color: #f73eff;
-        padding: 5px;
-        border-radius: 4px;
-      }
-      /* Change MENU text to black */
+      .menu-toggle { display: flex; }
       .menu-toggle::after {
-        content: " MENU";
-        color: black;
-        font-size: 16px;
-        vertical-align: middle;
+        content: " MENU"; color: black; font-size: 16px; vertical-align: middle;
       }
-    }
-    #menu {
-      display: flex;
-      justify-content: center;
-      z-index: 1000;
-    }
-    @media (max-width: 768px) {
       #menu {
-        display: none;
-        flex-direction: column;
-        align-items: center;
-        background-color: #000;
-        position: absolute;
-        top: 60px;
-        width: 100%;
-        z-index: 1001;
+        display: none; flex-direction: column; align-items: center;
+        background-color: #000; position: absolute; top: 60px; width: 100%; z-index: 1001;
       }
-      #menu.active {
-        display: flex;
-      }
+      #menu.active { display: flex; }
     }
+    #menu { display: flex; justify-content: center; z-index: 1000; }
     #sticky-nav a {
-      color: #FFF;
-      padding: 10px 20px;
-      font-size: 16px;
-      text-decoration: none;
-      transition: color 0.3s ease;
+      color: #FFF; padding: 10px 20px; font-size: 16px;
+      text-decoration: none; transition: color 0.3s ease;
     }
-    #sticky-nav a:hover,
-    #sticky-nav a:focus {
-      color: #f73eff;
-      outline: none;
-    }
-    main {
-      padding: 20px;
-      margin-top: 100px;
-    }
-    #submissions {
-      text-align: center;
-    }
-    #submissions h2 {
-      font-family: 'Higher Jump', sans-serif;
-      margin-bottom: 10px;
-    }
-    #submissions p {
-      font-style: italic;
-      margin: 10px 0;
-      text-align: center;
-    }
+    #sticky-nav a:hover, #sticky-nav a:focus { color: #f73eff; outline: none; }
+    main { padding: 20px; margin-top: 100px; }
+
+    #submissions { text-align: center; }
+    #submissions h2 { font-family: 'Higher Jump', sans-serif; margin-bottom: 10px; }
+    #submissions p { font-style: italic; margin: 10px 0; }
     #submission-counter {
-      font-family: 'Higher Jump', sans-serif;
-      font-weight: bold;
-      font-size: 1.5em;
-      cursor: pointer;
-      margin-bottom: 10px;
+      font-family: 'Higher Jump', sans-serif; font-weight: bold;
+      font-size: 1.5em; cursor: pointer; margin-bottom: 10px;
       transition: transform 0.3s;
     }
-    #submission-counter:hover {
-      transform: scale(1.1);
-    }
+    #submission-counter:hover { transform: scale(1.1); }
     #submission-counter.revealed {
-      font-size: 3em;
-      animation: pulseColor 2s infinite;
+      font-size: 3em; animation: pulseColor 2s infinite;
     }
     @keyframes pulseColor {
-      0% { color: #f73eff; transform: scale(1); }
-      50% { color: #f73eff; transform: scale(1.1); }
-      100% { color: #f73eff; transform: scale(1); }
+      0%,100% { color: #f73eff; transform: scale(1); }
+      50%   { color: #f73eff; transform: scale(1.1); }
     }
-    #films .logo-container {
-      text-align: center;
-      margin: 10px auto;
+
+    #films .logo-container { text-align: center; margin: 10px auto; }
+    #mooch_rejecta_selection,
+    #mooch-logo,
+    .variety-link img,
+    #rejected-by,
+    #mooch-still,
+    #poster1,
+    #poster2 {
+      max-width: 600px; height: auto; display: block; margin: 5px auto;
     }
-    #mooch_rejecta_selection {
-      max-width: 600px;
-      height: auto;
-      display: block;
-      margin: 5px auto;
-    }
-    #mooch-logo {
-      max-width: 600px;
-      height: auto;
-      transition: transform 0.3s;
-      display: block;
-      margin: 5px auto;
-    }
-    #mooch-logo:hover {
-      transform: scale(1.05);
-    }
-    .variety-link {
-      text-align: center;
-      margin: 10px 0;
-    }
-    .variety-link img {
-      width: 150px;
-      height: auto;
-      display: inline-block;
-    }
-    .small-spacer {
-      height: 10px;
-    }
-    #rejected-by {
-      display: block;
-      margin: 5px auto;
-      max-width: 100%;
-      height: auto;
-    }
-    #mooch-still {
-      max-width: 600px;
-      height: auto;
-      display: block;
-      margin: 5px auto 0;
-    }
-    .credits {
-      text-align: center;
-      margin-top: 10px;
-    }
+    .variety-link { margin: 10px 0; }
+    .small-spacer { height: 10px; }
+    .credits { text-align: center; margin-top: 10px; }
     .credits h3 {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 2em;
-      margin: 10px 0;
-      color: #000;
+      font-family: 'Bebas Neue', sans-serif; font-size: 2em; margin: 10px 0; color: #000;
     }
     .credits p.credit-main {
-      text-align: center;
-      margin: 10px 0;
-      font-size: 1.2em;
-      color: #000;
+      text-align: center; margin: 10px 0; font-size: 1.2em; color: #000;
     }
-    .credits .info {
-      text-align: center;
-      margin-top: 10px;
-    }
-    /* Updated credits text */
     .credits p.credit-main span.directed {
-      font-family: 'Higher Jump', sans-serif;
-      color: #000;
+      font-family: 'Higher Jump', sans-serif; color: #000;
     }
     .credits p.credit-main span.rejecta {
-      font-family: 'Higher Jump', sans-serif;
-      color: #f73eff;
-      font-size: 0.66em; /* 2x bigger than previous 0.33em */
+      font-family: 'Higher Jump', sans-serif; color: #f73eff; font-size: 0.66em;
     }
+
     #countdown-section h2 {
-      text-align: center;
-      font-family: 'Higher Jump', sans-serif;
+      text-align: center; font-family: 'Higher Jump', sans-serif;
     }
-    #countdown {
-      text-align: center;
-      margin-top: 20px;
-    }
+    #countdown { text-align: center; margin-top: 20px; }
     .countdown-item {
-      display: inline-block;
-      background: #eee;
-      border: 4px solid #f73eff;
-      border-radius: 8px;
-      padding: 10px 15px;
-      margin: 5px;
+      display: inline-block; background: #eee;
+      border: 4px solid #f73eff; border-radius: 8px;
+      padding: 10px 15px; margin: 5px;
       font-family: 'Higher Jump', sans-serif;
-      font-size: 1.5em;
-      color: #000;
+      font-size: 1.5em; color: #000;
     }
-    .countdown-item .label {
-      display: block;
-      font-size: 0.5em;
-      color: #555;
+    .countdown-item .label { display: block; font-size: 0.5em; color: #555; }
+
+    #map h2 {
+      font-family: 'Higher Jump', sans-serif; text-align: center;
     }
+    #map img { display: block; margin: 0 auto; }
+    #map p {
+      font-family: 'Higher Jump', sans-serif; color: #f73eff;
+      text-align: center; margin-top: 40px;
+    }
+
     #about h2 {
-      text-align: center;
-      font-family: 'Higher Jump', sans-serif;
+      text-align: center; font-family: 'Higher Jump', sans-serif;
     }
-    #about p {
-      margin-bottom: 20px;
-    }
-    #about img {
-      display: block;
-      margin: 0 auto;
-    }
+    #about p { margin-bottom: 20px; }
+    #about img { display: block; margin: 0 auto; }
     .subheading {
-      text-align: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8em;
-      color: #000;
-      margin: 10px 0;
+      text-align: center; font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8em; color: #000; margin: 10px 0;
     }
     .about-final {
-      text-align: center;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.8em;
-      color: #000;
-      margin-top: 10px;
+      text-align: center; font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8em; color: #000; margin-top: 10px;
     }
-    #ugc {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+
+    #ugc { text-align: center; margin-bottom: 40px; }
     #ugc h2, #ugc h3 {
-      font-family: 'Higher Jump', sans-serif;
+      font-family: 'Higher Jump', sans-serif; text-align: center;
     }
     .custom-form {
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: left;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      padding: 15px;
-      background: #fff;
+      max-width: 600px; margin: 0 auto; text-align: left;
+      border: 1px solid #ccc; border-radius: 8px;
+      padding: 15px; background: #fff;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     .custom-form label {
-      font-weight: bold;
-      margin: 10px 0 5px;
-      display: block;
+      font-weight: bold; margin: 10px 0 5px; display: block;
     }
     .custom-form input[type="text"] {
-      width: 100%;
-      padding: 8px;
-      margin-bottom: 10px;
-      box-sizing: border-box;
-      border: 1px solid #ccc;
+      width: 100%; padding: 8px; margin-bottom: 10px;
+      box-sizing: border-box; border: 1px solid #ccc;
       border-radius: 4px;
     }
     .custom-form .checkbox-group,
     .custom-form .radio-group {
       border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 8px;
-      margin-bottom: 10px;
+      border-radius: 4px; padding: 8px; margin-bottom: 10px;
     }
     .custom-form .checkbox-group label,
     .custom-form .radio-group label {
-      font-weight: normal;
-      margin-right: 15px;
+      font-weight: normal; margin-right: 15px;
     }
     .custom-form input[type="submit"] {
-      background-color: #f73eff;
-      border: none;
-      color: #fff;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
+      background-color: #f73eff; border: none; color: #fff;
+      padding: 10px 20px; font-size: 16px; cursor: pointer;
       border-radius: 4px;
     }
     .custom-form input[type="submit"]:hover {
       background-color: #d633e1;
     }
+
     #ugc .rules-header {
       font-family: 'Higher Jump', sans-serif;
-      text-align: center;
-      margin-top: 20px;
-      font-size: 1.5em;
+      text-align: center; margin-top: 20px; font-size: 1.5em;
     }
     #ugc .rules {
-      background-color: #fff0f9;
-      padding: 15px;
-      border-radius: 8px;
-      font-size: 0.8em;
-      color: #555;
-      margin-top: 10px;
-      text-align: center;
-      line-height: 1.4;
+      background-color: #fff0f9; padding: 15px;
+      border-radius: 8px; font-size: 0.8em; color: #555;
+      margin-top: 10px; text-align: center; line-height: 1.4;
     }
+
     footer {
-      background-color: #f0f0f0;
-      padding: 20px;
-      text-align: center;
-      font-size: 16px;
+      background-color: #f0f0f0; padding: 20px;
+      text-align: center; font-size: 16px;
     }
-    .footer-social {
-      margin-bottom: 10px;
-    }
-    .footer-social img {
-      width: 15px;
-      margin: 0 10px;
-    }
+    .footer-social img { width: 15px; margin: 0 10px; }
+
     @media (max-width: 768px) {
-      #banner img {
-        width: 70%;
-      }
-      #sticky-nav a {
-        padding: 8px 15px;
-        font-size: 14px;
-      }
-      .countdown-item {
-        font-size: 1.2em;
-        padding: 8px 10px;
-      }
-      .countdown-item .label {
-        font-size: 0.4em;
-      }
-      .custom-form {
-        padding: 10px;
-      }
+      #banner img { width: 70%; }
+      #sticky-nav a { padding: 8px 15px; font-size: 14px; }
+      .countdown-item { font-size: 1.2em; padding: 8px 10px; }
+      .countdown-item .label { font-size: 0.4em; }
+      .custom-form { padding: 10px; }
       #mooch-logo,
       #mooch_rejecta_selection,
       #mooch-still,
+      #poster1,
+      #poster2,
       .variety-link img,
       #rejected-by,
       #map img {
-        max-width: 90%;
-        height: auto;
+        max-width: 90%; height: auto;
       }
     }
   </style>
 </head>
 <body>
   <div class="top-spacer"></div>
-  
-  <!-- Banner -->
   <div id="banner">
     <img src="images/rejecta_logo.png" alt="Rejecta Film Festival Logo">
   </div>
-  
+
   <header>
-    <!-- Sticky Navigation -->
     <nav id="sticky-nav">
       <div id="menu-toggle" class="menu-toggle" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </div>
       <div id="menu" class="menu">
         <a href="#banner" class="nav-link">Home</a>
@@ -433,19 +242,16 @@
       </div>
     </nav>
   </header>
-  
+
   <main>
-    <!-- Record Submissions Section -->
     <section id="submissions">
       <h2>RECORD HIGH SUBMISSIONS</h2>
       <p>We've received a record number of submissions!</p>
       <div id="submission-counter">CLICK TO REVEAL</div>
     </section>
-    
-    <!-- FILMS Section -->
+
     <section id="films">
       <div class="logo-container">
-        <!-- mooch_rejecta_selection appears above mooch logo -->
         <img id="mooch_rejecta_selection" src="images/mooch_rejecta_selection.png" alt="Mooch Rejecta Selection">
         <div class="small-spacer"></div>
         <img id="mooch-logo" src="images/mooch_logo_black.png" alt="Mooch Logo">
@@ -458,18 +264,19 @@
         <img id="rejected-by" src="images/rejected_by.gif" alt="Rejected By">
         <div class="small-spacer"></div>
         <img id="mooch-still" src="images/mooch_still.jpg" alt="Mooch Still">
+        <!-- New Posters -->
+        <img id="poster1" src="images/mooch teaser art.jpg" alt="Mooch Teaser Art">
+        <img id="poster2" src="images/mooch graduate.png" alt="Mooch Graduate">
       </div>
-      <!-- Credits Block -->
       <div class="credits">
         <h3>Based on a pathetic true story</h3>
         <p class="credit-main">
-          <span class="directed" style="font-family:'Higher Jump', sans-serif; color:#000;">Directed By: JEFF RYAN</span><br>
-          <span class="rejecta" style="font-family:'Higher Jump', sans-serif; color:#f73eff; font-size:0.66em;">BIGGEST REJECTA ALIVE</span>
+          <span class="directed">Directed By: JEFF RYAN</span><br>
+          <span class="rejecta">BIGGEST REJECTA ALIVE</span>
         </p>
       </div>
     </section>
-    
-    <!-- COUNTDOWN Section -->
+
     <section id="countdown-section">
       <h2>Rejecta Film Festival Countdown</h2>
       <div id="countdown">
@@ -479,37 +286,34 @@
         <div class="countdown-item"><span id="seconds">00</span><span class="label">Seconds</span></div>
       </div>
     </section>
-    
-    <!-- MAP Section -->
+
     <section id="map">
-      <h2 style="font-family:'Higher Jump', sans-serif; text-align:center;">FESTIVAL GUIDE</h2>
-      <img src="images/fesstival_guide.png" alt="Festival Guide" style="display:block; margin:0 auto;">
+      <h2>FESTIVAL GUIDE</h2>
+      <img src="images/fesstival_guide.png" alt="Festival Guide">
       <div class="spacer"></div>
-      <p style="font-family:'Higher Jump', sans-serif; color:#f73eff; text-align:center; margin-top:40px;">ACROSS FROM THAT OTHER FESTIVAL</p>
+      <p>ACROSS FROM THAT OTHER FESTIVAL</p>
     </section>
-    
-    <!-- ABOUT Section -->
+
     <section id="about">
-      <h2 style="font-family:'Higher Jump', sans-serif; text-align:center;">ABOUT</h2>
-      <h3 class="subheading" style="color:#000;">You miss 100% of the shots you don't take...</h3>
+      <h2>ABOUT</h2>
+      <h3 class="subheading">You miss 100% of the shots you don't take...</h3>
       <p>
         Jeff Ryan is a filmmaker hailing from the greatest state in America: New Jersey. Despite his lofty dreams of becoming a successful filmmaker, he, like so many others on this circus ride, found himself facing the sweet smell of rejection on a daily basis. Earlier this year, Jeff found himself falling to his knees and crying into an unwashed pillow, after receiving his ninth rejection from SXSW. It was then that Jeff decided to create a festival of his own. After a record number of submissions in its inaugural year, Jeff feels confident that mortgaging his home and personal assets to make this dream a reality was a smart decision. Time will tell, but Jeff believes he can double his submission count by 2026 if the stars continue to align.
       </p>
       <img src="images/jefff_senior_quote.GIF" alt="Jeff Senior Quote">
       <div class="spacer"></div>
-      <h3 class="subheading" style="color:#000;">AND IN MY CASE...</h3>
-      <p class="about-final" style="font-family:'Bebas Neue', sans-serif; color:#000; text-align:center;">You miss 100% of the shots you do take</p>
+      <h3 class="subheading">AND IN MY CASE...</h3>
+      <p class="about-final">You miss 100% of the shots you do take</p>
     </section>
-    
-    <!-- SUBMIT Section: Custom Form -->
+
     <section id="ugc">
-      <h2 style="font-family:'Higher Jump', sans-serif; text-align:center;">SUBMIT</h2>
-      <h3 style="font-family:'Higher Jump', sans-serif; text-align:center;">Submit Your Rejected Film</h3>
+      <h2>SUBMIT</h2>
+      <h3>Submit Your Rejected Film</h3>
       <div class="custom-form">
         <form id="rejectaForm">
           <label for="film-title">Film Title</label>
           <input type="text" id="film-title" name="filmTitle" required>
-          
+
           <label>Have you been rejected from ANY of the following?</label>
           <div class="checkbox-group">
             <label><input type="checkbox" name="festivals" value="Sundance Film Festival"> Sundance Film Festival</label>
@@ -518,19 +322,19 @@
             <label><input type="checkbox" name="festivals" value="Tribeca Film Festival"> Tribeca Film Festival</label>
             <label><input type="checkbox" name="festivals" value="Toronto International Film Festival"> Toronto International Film Festival</label>
           </div>
-          
+
           <label>If yes, did you cry?</label>
           <div class="radio-group">
             <label><input type="radio" name="cry" value="Yes" required> Yes</label>
             <label><input type="radio" name="cry" value="Yes, a lot" required> Yes, a lot</label>
           </div>
-          
+
           <label>Please confirm you've read the G** D*** rules</label>
           <div class="radio-group">
             <label><input type="radio" name="rules" value="Yes" required> Yes</label>
             <label><input type="radio" name="rules" value="Yes, twice" required> Yes, twice</label>
           </div>
-          
+
           <input type="submit" value="Submit">
         </form>
       </div>
@@ -540,100 +344,74 @@
       </p>
     </section>
   </main>
-  
-  <!-- Footer -->
+
   <footer>
     <div class="footer-social">
-      <a href="https://www.instagram.com/rejectafilmfest/" target="_blank">
-        <img src="images/insta_logo_black.png" alt="Instagram">
-      </a>
-      <a href="https://x.com/rejectafilmfest" target="_blank">
-        <img src="images/x_logo_black.png" alt="X/Twitter">
-      </a>
+      <a href="https://www.instagram.com/rejectafilmfest/" target="_blank"><img src="images/insta_logo_black.png" alt="Instagram"></a>
+      <a href="https://x.com/rejectafilmfest" target="_blank"><img src="images/x_logo_black.png" alt="X/Twitter"></a>
     </div>
     <div>© Copyright 2025</div>
   </footer>
-  
+
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Navigation Toggle
-      const menuToggle = document.getElementById('menu-toggle');
-      const menu = document.getElementById('menu');
-      menuToggle.addEventListener('click', () => {
-          const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-          menuToggle.setAttribute('aria-expanded', !isExpanded);
-          menu.classList.toggle('active');
+      // Menu toggle
+      const toggle = document.getElementById('menu-toggle');
+      const menu  = document.getElementById('menu');
+      toggle.addEventListener('click', () => {
+        const exp = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', !exp);
+        menu.classList.toggle('active');
       });
-      // Auto-collapse mobile menu when a link is clicked
-      const navLinks = document.querySelectorAll('.nav-link');
-      navLinks.forEach(link => {
-          link.addEventListener('click', () => {
-              if(window.innerWidth <= 768) {
-                  menu.classList.remove('active');
-                  menuToggle.setAttribute('aria-expanded', 'false');
-              }
-          });
-      });
-      // Mooch Logo Hover Effect
-      const moochLogo = document.getElementById('mooch-logo');
-      if(moochLogo) {
-        moochLogo.addEventListener('mouseover', function() {
-          moochLogo.src = "images/mooch_logo_pink.png";
-        });
-        moochLogo.addEventListener('mouseout', function() {
-          moochLogo.src = "images/mooch_logo_black.png";
-        });
-      }
-      // Record Submissions Toggle
-      const submissionCounter = document.getElementById('submission-counter');
-      submissionCounter.addEventListener('click', function() {
-          if (submissionCounter.textContent.trim() === "CLICK TO REVEAL") {
-              submissionCounter.textContent = "ONE";
-              submissionCounter.classList.add("revealed");
+      // Auto collapse on link click (mobile)
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          if (window.innerWidth <= 768) {
+            menu.classList.remove('active');
+            toggle.setAttribute('aria-expanded', 'false');
           }
+        });
       });
-      // Countdown Timer
-      function updateCountdown() {
-          const now = new Date().getTime();
-          const distance = premiereDate - now;
-          if(distance < 0) {
-              clearInterval(countdownInterval);
-              document.getElementById('days').textContent = "00";
-              document.getElementById('hours').textContent = "00";
-              document.getElementById('minutes').textContent = "00";
-              document.getElementById('seconds').textContent = "00";
-              return;
-          }
-          const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-          const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-          document.getElementById('days').textContent = days;
-          document.getElementById('hours').textContent = hours;
-          document.getElementById('minutes').textContent = minutes;
-          document.getElementById('seconds').textContent = seconds;
+      // Logo hover swap
+      const ml = document.getElementById('mooch-logo');
+      if (ml) {
+        ml.addEventListener('mouseover', () => ml.src = 'images/mooch_logo_pink.png');
+        ml.addEventListener('mouseout',  () => ml.src = 'images/mooch_logo_black.png');
       }
-      const premiereDate = new Date("June 7, 2025 00:00:00").getTime();
-      updateCountdown();
-      const countdownInterval = setInterval(updateCountdown, 1000);
-      
-      // Custom Form Submission via AJAX (replace with your Apps Script endpoint)
-      const rejectaForm = document.getElementById('rejectaForm');
-      rejectaForm.addEventListener('submit', function(e) {
-          e.preventDefault();
-          const formData = new FormData(rejectaForm);
-          const data = {};
-          formData.forEach((value, key) => { data[key] = value; });
-          fetch("https://script.google.com/macros/s/your-script-id/exec", {
-              method: "POST",
-              mode: "no-cors",
-              body: JSON.stringify(data)
-          }).then(() => {
-              alert("Submission successful!");
-              rejectaForm.reset();
-          }).catch((error) => {
-              console.error("Error!", error.message);
-          });
+      // Reveal ONE
+      const sc = document.getElementById('submission-counter');
+      sc.addEventListener('click', () => {
+        if (sc.textContent.trim()==='CLICK TO REVEAL') {
+          sc.textContent='ONE';
+          sc.classList.add('revealed');
+        }
+      });
+      // Countdown
+      const premiere = new Date("June 7, 2025 00:00:00").getTime();
+      function upd() {
+        const now = Date.now(), dist = premiere - now;
+        if (dist<0) { clearInterval(iv); ['days','hours','minutes','seconds'].forEach(id => document.getElementById(id).textContent='00'); return; }
+        const d = Math.floor(dist/86400000),
+              h = Math.floor((dist%86400000)/3600000),
+              m = Math.floor((dist%3600000)/60000),
+              s = Math.floor((dist%60000)/1000);
+        document.getElementById('days').textContent = d;
+        document.getElementById('hours').textContent= h;
+        document.getElementById('minutes').textContent= m;
+        document.getElementById('seconds').textContent= s;
+      }
+      upd(); const iv = setInterval(upd,1000);
+      // Form submission
+      document.getElementById('rejectaForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const fd = new FormData(e.target), obj = {};
+        fd.forEach((v,k)=> obj[k]=v);
+        fetch('https://script.google.com/macros/s/your-script-id/exec', {
+          method:'POST', mode:'no-cors', body: JSON.stringify(obj)
+        }).then(()=>{
+          alert('Submission successful!');
+          e.target.reset();
+        }).catch(err=> console.error(err));
       });
     });
   </script>
