@@ -306,6 +306,7 @@
     <!-- Countdown -->
     <section id="countdown-section">
       <h2>Rejecta Film Festival Countdown</h2>
+      <p style="font-style: italic; font-size: 1rem;">Event Date: June 8, 2025 at 4:00 PM</p>
       <div id="countdown">
         <div class="countdown-item"><span id="days">00</span><span class="label">Days</span></div>
         <div class="countdown-item"><span id="hours">00</span><span class="label">Hours</span></div>
@@ -422,7 +423,7 @@
         }
       });
       // Countdown
-      const premiere = new Date('June 7, 2025 00:00:00').getTime();
+      const premiere = new Date('June 8, 2025 16:00:00').getTime();
       function updateCountdown() {
         const now = Date.now(), dist = premiere - now;
         if (dist < 0) {
